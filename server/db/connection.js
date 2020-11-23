@@ -5,9 +5,11 @@ const config = require('./knexfile')
 const connection = knex(config[env])
 
 module.exports = {
-       getTodos: getTodos,
-       getTodoById: getTodoById,
-       addTodo: addTodo
+       getTodos,
+       getTodoById,
+       addTodo,
+       updateTodo,
+       deleteTodo
 }
 
 
@@ -19,13 +21,26 @@ function getTodos(db = connection){
 function getTodoById(id,db = connection){
        return db('todos')
         .select()
-        .where("id",id)
-        .first()
-        .then((todoIt) =>{
-           return todoIt
+        //.where({id: 1})
+        .where('id', id)
+        //.first()
 
-        })
 }
+
+function updateTodo(currId,todo,db=connection){
+
+      return db('todos')
+         .update(todo)
+         .where('id',currId)
+
+}
+
+function deleteTodo(currId,db=connection){
+      return db('todos')
+         .where('id',currId)
+         .delete()
+}
+
 
 function addTodo(todoName, priority, completed, db= connection) {
        let todoRw = {};
