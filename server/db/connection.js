@@ -23,9 +23,22 @@ function getTodoById(id,db = connection){
         .select()
         //.where({id: 1})
         .where('id', id)
-        //.first()
+        .first()
 
 }
+
+function addTodo(todo, db= connection) {
+       // let todoRw = {};
+       // todoRw.todoName = todoName;
+       // todoRw.priority = priority;
+       // todoRw.completed = completed;
+   
+     //console.log(todoRw);
+     return db("todos")
+     .insert(todo)
+     .then(([id])=> id)
+}
+
 
 function updateTodo(currId,todo,db=connection){
 
@@ -42,13 +55,3 @@ function deleteTodo(currId,db=connection){
 }
 
 
-function addTodo(todoName, priority, completed, db= connection) {
-       let todoRw = {};
-       todoRw.todoName = todoName;
-       todoRw.priority = priority;
-       todoRw.completed = completed;
-   
-     console.log(todoRw);
-     return db("todos")
-     .insert(todoRw);
-}

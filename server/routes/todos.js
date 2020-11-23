@@ -2,7 +2,7 @@
 const express=require("express")
 const router =express.Router()
 
-const {getTodos,getTodoById,updateTodo,deleteTodo} =require ("../db/connection")
+const {getTodos,getTodoById,addTodo,updateTodo,deleteTodo} =require ("../db/connection")
 
 router.get('/' ,(req, res)=>{
 
@@ -31,13 +31,39 @@ router.get('/:id' ,(req, res)=>{
     });
 })
 
+router.post( '/' ,(req,res)=> {
+
+    const currTodo ={
+        // todoName: req.body.todoName,
+        // priority: req.body.priority,
+        // completed: req.body.completed
+
+        todoName: "snap",
+        priority: "low",
+        completed: true
+    }
+
+    addTodo(currTodo)
+      .then(id =>getTodoById(id))
+      .then( todoIt=> {
+
+        res.json(todoIt)
+      })
+
+    
+})
+
 router.patch( '/:id',(req,res)=>{
     const id=req.params.id
     const currTodo={
     
-        todoName: req.body.todoName,
-        priority: req.body.priority,
-        completed: req.body.completed
+        // todoName: req.body.todoName,
+        // priority: req.body.priority,
+        // completed: req.body.completed
+
+        todoName: "snap",
+        priority: "low",
+        completed: true
     }
 
     updateTodo(id,currTodo)
