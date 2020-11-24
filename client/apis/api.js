@@ -1,8 +1,20 @@
 //import { response } from 'express'
 import request from 'superagent'
 
+
 const todosUrl = 'http://localhost:3000/api/v1/todos'
-//const todoItUrl = 'http://localhost:3000/api/v1/todos'
+const deleteUrl = 'http://localhost:3000/api/v1/todos/'
+
+export function deleteTodo(id){
+
+   return request
+     .delete('http://localhost:3000/api/v1/todos/'+id) 
+     
+         
+  }
+
+
+
 
 export function getTodos () {
   return request
