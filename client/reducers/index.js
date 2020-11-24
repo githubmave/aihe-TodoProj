@@ -9,5 +9,6 @@ import todosRdc from './todosRdc'
 export default combineReducers({
    
   // stuff
+  //console.log("It is from todoRdc: ",todosRdc)
   todosRdc
 })

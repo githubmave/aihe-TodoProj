@@ -15,6 +15,7 @@ router.get('/' ,(req, res)=>{
       console.log(err);
       res.status(500);
     });
+   // res.json({"result":"just for fun test"})
 })
 
 router.get('/:id' ,(req, res)=>{
@@ -34,13 +35,13 @@ router.get('/:id' ,(req, res)=>{
 router.post( '/' ,(req,res)=> {
 
     const currTodo ={
-        // todoName: req.body.todoName,
-        // priority: req.body.priority,
-        // completed: req.body.completed
+        todoName: req.body.todoName,
+        priority: req.body.priority,
+        completed: req.body.completed
 
-        todoName: "snap",
-        priority: "low",
-        completed: true
+        // todoName: "snap",
+        // priority: "low",
+        // completed: true
     }
 
     addTodo(currTodo)
@@ -57,13 +58,13 @@ router.patch( '/:id',(req,res)=>{
     const id=req.params.id
     const currTodo={
     
-        // todoName: req.body.todoName,
-        // priority: req.body.priority,
-        // completed: req.body.completed
+        todoName: req.body.todoName,
+        priority: req.body.priority,
+        completed: req.body.completed
 
-        todoName: "snap",
-        priority: "low",
-        completed: true
+        // todoName: "snap",
+        // priority: "low",
+        // completed: true
     }
 
     updateTodo(id,currTodo)

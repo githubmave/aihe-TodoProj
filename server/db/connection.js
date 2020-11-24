@@ -35,7 +35,7 @@ function addTodo(todo, db= connection) {
    
      //console.log(todoRw);
      return db("todos")
-     .insert(todo)
+     .insert(todo) 
      .then(([id])=> id)
 }
 

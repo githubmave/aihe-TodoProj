@@ -10,9 +10,9 @@ class App extends React.Component {
         
      
   componentDidMount () {
-     getTodos()
+     //getTodos()
 
-    // this.props.dispatch(fetchTodos())
+     this.props.dispatch(fetchTodos())
       
   }
 
@@ -26,11 +26,12 @@ class App extends React.Component {
          
         <section className="main"></section>
            <ul >
-              {/* {this.props.todoArr.map((todoIt,i) =>{
+              {this.props.todoArr.map((todoIt,i) =>
+                
 
-              <li key={i} >{todoIt[todoName]}  </li>       
+              <li key={i} >{todoIt.todoName}  </li>       
 
-              })} */}
+              )}
            </ul>   
           
         <footer className="footer"></footer>
@@ -39,13 +40,15 @@ class App extends React.Component {
   }
 }
 
-export default App
-// function mapStateToProps (globalState) {
-//   return {
-//     //todoArr is props belongs to "this"
-//     todoArr: globalState.todosRdc
-//   }
-// }
+//export default App
+function mapStateToProps (globalState) {
+  return {
+   
+    todoArr: globalState.todosRdc
 
-//export default connect(mapStateToProps)(App)
+    
+  }
+}
+
+export default connect(mapStateToProps)(App)
 

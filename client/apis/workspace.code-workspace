@@ -4,16 +4,13 @@
 			"path": "../.."
 		},
 		{
-			"path": "../../../aihe/week5.3_Use_External_API/consuming-external-apis"
+			"path": "../../../aihe/week6.3_Redux-CombineReducer_ActionCreator_ExtraAPI/Answer-me"
 		},
 		{
-			"path": "../../../aihe/week5.1_Use_Express_Router_Write_RESTful_API_Charlott_Web/charlottes-web-log-api-DONE-KIENAN"
+			"path": "../../../aihe/week6.3_Redux-CombineReducer_ActionCreator_ExtraAPI/async-redux-stories-Form-Submit-UseGlbState"
 		},
 		{
-			"path": "../../../aihe/week5.1_Use_Express_Router_Write_RESTful_API_Charlott_Web/charlottes-web-log-api-SOLUTION"
-		},
-		{
-			"path": "../../../aihe/week6.3_Redux-CombineReducer_ActionCreator_ExtraAPI"
+			"path": "../../../aihe/week6.3_Redux-CombineReducer_ActionCreator_ExtraAPI/sweet-as-beers"
 		}
 	],
 	"settings": {}
