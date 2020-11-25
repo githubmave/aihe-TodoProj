@@ -10,7 +10,7 @@ import {fetchTodos} from '../actions/todosAc'
 
 class App extends React.Component {
   state = { 
-    todos: []
+    todo: ''
   
   }  
             
@@ -34,7 +34,7 @@ class App extends React.Component {
       
       
       <>
-        <div ><button > delete  </button></div>
+
         <header className="header">
           <h1>My Todo List
           
@@ -56,6 +56,12 @@ class App extends React.Component {
 
                   )}
               </ul>   
+
+              {/* <form >
+
+                  <input type="submit" value="Add Todo" />
+              </form> */}
+
           </section>
        
           
