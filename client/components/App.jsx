@@ -31,6 +31,10 @@ class App extends React.Component {
   handleChange = () => {
     console.log("input changed")
   }
+  handleSubmit = () => {
+
+    console.log("submit form")
+  }
 
   render () {
     
@@ -44,7 +48,7 @@ class App extends React.Component {
           
           </h1>
           {/* <AddTodo /> */}
-          <form >
+          <form onSubmit={this.handleSubmit}>
               <input className="new-todo" placeholder="new Todo" type="text" 
                 onChange={this.handleChange}value={this.state.todoNm}  autoFocus={true} />
               <input type="submit" value="Add Todo" />
