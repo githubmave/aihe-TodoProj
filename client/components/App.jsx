@@ -21,7 +21,10 @@ class App extends React.Component {
   }
 
   handleDelete = (e,id) => {
+    e.preventDefault()
     console.log("button is clicked")
+    
+    deleteTodo(id)
 
   }
 
