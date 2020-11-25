@@ -39,7 +39,11 @@ class App extends React.Component {
           <h1>My Todo List
           
           </h1>
-          <AddTodo />
+          {/* <AddTodo /> */}
+          
+          <input className="new-todo" placeholder="What needs to be done?" autoFocus={true} />
+          <input type="submit" value="Add Todo" />
+          
         </header>
          
         <section className="main">
@@ -59,7 +63,7 @@ class App extends React.Component {
 
               {/* <form >
 
-                  <input type="submit" value="Add Todo" />
+                  
               </form> */}
 
           </section>
