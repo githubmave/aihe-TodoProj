@@ -20,9 +20,9 @@ class App extends React.Component {
       
   }
 
-  handleDelete(i){
-      deleteTodo(i)
-              
+  handleDelete = (e,id) => {
+    console.log("button is clicked")
+
   }
 
   render () {
@@ -40,19 +40,19 @@ class App extends React.Component {
         </header>
          
         <section className="main">
-          <TodoList />
-{/*        
+          {/* <TodoList /> */}
+       
               <ul >
                   {this.props.todoArr.map((todoIt,i) =>
                                      
                   <li key={i} >{todoIt.todoName} 
 
-                  
+                  <button onClick={(e) => this.handleDelete(e,todoIt.id)}>Delete</button>
                     
                   </li>       
 
                   )}
-              </ul>    */}
+              </ul>   
           </section>
        
           
