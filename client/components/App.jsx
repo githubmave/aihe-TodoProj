@@ -10,7 +10,7 @@ import {fetchTodos} from '../actions/todosAc'
 
 class App extends React.Component {
   state = { 
-    todo: ''
+    todoNm: 'type sth'
   
   }  
             
@@ -28,6 +28,10 @@ class App extends React.Component {
 
   }
 
+  handleChange = () => {
+    console.log("input changed")
+  }
+
   render () {
     
     return (
@@ -40,9 +44,11 @@ class App extends React.Component {
           
           </h1>
           {/* <AddTodo /> */}
-          
-          <input className="new-todo" placeholder="What needs to be done?" autoFocus={true} />
-          <input type="submit" value="Add Todo" />
+          <form >
+              <input className="new-todo" placeholder="new Todo" type="text" 
+                onChange={this.handleChange}value={this.state.todoNm}  autoFocus={true} />
+              <input type="submit" value="Add Todo" />
+          </form>
           
         </header>
          
