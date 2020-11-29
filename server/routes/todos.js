@@ -33,44 +33,31 @@ router.get('/:id' ,(req, res)=>{
 })
 
 router.post( '/' ,(req,res)=> {
+      const currTodo = req.body
+      console.log(" From router.post:",req.body)
 
-    const currTodo ={
-        todoName: req.body.todoName,
-        priority: req.body.priority,
-        completed: req.body.completed
-
-        // todoName: "snap",
-        // priority: "low",
-        // completed: true
-    }
+   
 
     addTodo(currTodo)
-      .then(id =>getTodoById(id))
-      .then( todoIt=> {
+      .then(currTodo =>{      
+        res.json(currTodo)
+      })   
 
-        res.json(todoIt)
+      .catch(err => {
+         res.status(500).send(err.message)
+
+
       })
-
-    
 })
 
 router.patch( '/:id',(req,res)=>{
-    const id=req.params.id
-    const currTodo={
-    
-        todoName: req.body.todoName,
-        priority: req.body.priority,
-        completed: req.body.completed
-
-        // todoName: "snap",
-        // priority: "low",
-        // completed: true
-    }
+    const id = Number(req.params.id)
+    const currTodo=req.body
 
     updateTodo(id,currTodo)
-      .then(()=>getTodoById(id))   
-      .then( (todoIt)=>{
-        res.json(todoIt) 
+      
+      .then( currTodo => {
+        res.json(currTodo) 
       })
     
 })

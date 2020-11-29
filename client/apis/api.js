@@ -1,4 +1,4 @@
-//import { response } from 'express'
+
 import request from 'superagent'
 
 
@@ -13,7 +13,13 @@ export function deleteTodo(id){
          
   }
 
-
+export function addTodo (newTodo){
+     console.log("from api, new Todo ",newTodo)
+     return request
+       .post ('http://localhost:3000/api/v1/todos/')
+       .send(newTodo)
+       .then(response =>  response.body.id)
+}
 
 
 export function getTodos () {

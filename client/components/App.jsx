@@ -1,16 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import {HashRouter as Router,Route,Link} from 'react-router-dom'
 
 import AddTodo from './AddTodo'
 import TodoList from './TodoList'
-import {deleteTodo} from '../apis/api'
+import {deleteTodo,addTodo} from '../apis/api'
 
 import {fetchTodos} from '../actions/todosAc'
 
 class App extends React.Component {
   state = { 
-    todoNm: 'type sth'
+    todoNm: ''
   
   }  
             
@@ -24,16 +23,22 @@ class App extends React.Component {
     e.preventDefault()
     console.log("button is clicked")
     
-    deleteTodo(id)
+    deleteTodo(id,this.props.dispatch)
 
   }
 
-  handleChange = () => {
-    console.log("input changed")
+  handleChange = (e) => {
+  
+    return this.setState({todoNm: e.target.value})
   }
-  handleSubmit = () => {
+  handleSubmit = (e) => {
+    e.preventDefault()
+    //push the new task into database
+    console.log("handleSubmit click")
+    addTodo(this.state)
 
-    console.log("submit form")
+
+
   }
 
   render () {
@@ -47,11 +52,12 @@ class App extends React.Component {
           <h1>My Todo List
           
           </h1>
+          
           {/* <AddTodo /> */}
           <form onSubmit={this.handleSubmit}>
-              <input className="new-todo" placeholder="new Todo" type="text" 
-                onChange={this.handleChange}value={this.state.todoNm}  autoFocus={true} />
-              <input type="submit" value="Add Todo" />
+              <input  className="new-todo" type="text" onChange={this.handleChange} value={this.state.todoNm}
+                autoFocus={true} />
+
           </form>
           
         </header>

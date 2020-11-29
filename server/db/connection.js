@@ -28,15 +28,14 @@ function getTodoById(id,db = connection){
 }
 
 function addTodo(todo, db= connection) {
-       // let todoRw = {};
-       // todoRw.todoName = todoName;
-       // todoRw.priority = priority;
-       // todoRw.completed = completed;
-   
-     //console.log(todoRw);
+  
      return db("todos")
      .insert(todo) 
-     .then(([id])=> id)
+     .then(ids => {
+
+       return getTodoById(ids[0])
+
+     }) 
 }
 
 
@@ -45,6 +44,10 @@ function updateTodo(currId,todo,db=connection){
       return db('todos')
          .update(todo)
          .where('id',currId)
+         .then((rowChanged) => {
+
+              return getTodoById(id)
+         })
 
 }
 
