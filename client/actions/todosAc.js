@@ -1,33 +1,52 @@
-import request from 'superagent'
-import {getTodos} from '../apis/api'
+export const RECIEVE_TODOS = 'RECIEVE_TODOS'
+// export const ADD_TODO = 'ADD_TODO'
+// export const DELETE_TODO = 'DELETE_TODO'
+// export const UPDATE_TODO = 'UPDATE_TODO'
+
+// export const requestItems = () => {
+
+//         return {
+//            type: REQUEST_TODOS,
+
+//         }
+// }
+
+export const recieveItems = (todoData) => {
+
+     return {
+        type:RECIEVE_TODOS,
+        todoData
+
+     }
+}
+// export const addItem = (newTodo) => {
+
+//       return {
+//         type: ADD_TODO,
+//         newTodo
+//       }
+// }
+
+// export const deleteItem = (id) => {
+
+//          return {
+//            type: DELETE_TODO,
+//            id
+
+//          }
+// }
+
+// export const updateItem = (id, updatedTodo) => {
+//    return {
+
+//        type: UPDATE_TODO,
+//        updatedTodo,
+//        id
+//    }
 
 
-export const SET_TODOS = 'SET_TODOS'
-//export const TEST = 'TEST'
+// }
 
-export function setTodos (todoData) {
-    console.log("It is from todoAc:setTodos",todoData)
-    return {
-      type: SET_TODOS,
-      todoData
-      // type: TEST,
-      // test: {"results" :[{"todoName":"sing"},{"todoName":"go swimming"}]
-            
-            }
-      //console.log("from todosAc, it is todo list:",todoData)
 
-     
-    }
   
   
-  export function fetchTodos () {
-  
-    return dispatch => {
-      return getTodos()
-        .then(todoData => {
-          console.log("it is from todoAC:",todoData)
-          dispatch(setTodos(todoData))
-          return null
-        })
-    }
-  }

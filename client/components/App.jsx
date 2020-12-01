@@ -3,9 +3,9 @@ import { connect } from 'react-redux'
 
 import AddTodo from './AddTodo'
 import TodoList from './TodoList'
-import {deleteTodo,addTodo} from '../apis/api'
+import {getTodos} from '../apis/api'
 
-import {fetchTodos} from '../actions/todosAc'
+import {recieveItems} from '../actions/todosAc'
 
 class App extends React.Component {
   state = { 
@@ -14,32 +14,33 @@ class App extends React.Component {
   }  
             
   componentDidMount () {
-    
-     this.props.dispatch(fetchTodos())
-      
+
+    getTodos()
+     .then(todos => {
+           this.props.dispatch(recieveItems(todos))
+     })
+       
   }
 
   handleDelete = (e,id) => {
     e.preventDefault()
     console.log("button is clicked")
     
-    deleteTodo(id,this.props.dispatch)
+    deleteTodo(id)
 
   }
 
-  handleChange = (e) => {
+  // handleChange = (e) => {
   
-    return this.setState({todoNm: e.target.value})
-  }
-  handleSubmit = (e) => {
-    e.preventDefault()
-    //push the new task into database
-    console.log("handleSubmit click")
-    addTodo(this.state)
+  //   return this.setState({todoNm: e.target.value})
+  // }
+  // handleSubmit = (e) => {
+  //   e.preventDefault()
+  //   //push the new task into database
+  //   console.log("handleSubmit click")
+  //   addTodo(this.state)
 
-
-
-  }
+  // }
 
   render () {
     
@@ -53,12 +54,12 @@ class App extends React.Component {
           
           </h1>
           
-          {/* <AddTodo /> */}
-          <form onSubmit={this.handleSubmit}>
+          <AddTodo />
+          {/* <form onSubmit={this.handleSubmit}>
               <input  className="new-todo" type="text" onChange={this.handleChange} value={this.state.todoNm}
                 autoFocus={true} />
 
-          </form>
+          </form> */}
           
         </header>
          
@@ -77,10 +78,7 @@ class App extends React.Component {
                   )}
               </ul>   
 
-              {/* <form >
-
-                  
-              </form> */}
+             
 
           </section>
        

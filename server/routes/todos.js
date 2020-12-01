@@ -35,11 +35,10 @@ router.get('/:id' ,(req, res)=>{
 router.post( '/' ,(req,res)=> {
       const currTodo = req.body
       console.log(" From router.post:",req.body)
-
-   
-
     addTodo(currTodo)
-      .then(currTodo =>{      
+   // console.log(" From router.post bf db.addTodo call :",currTodo) 
+      .then(currTodo =>{    
+        console.log(" From router.post af db.addTodo call:",currTodo)  
         res.json(currTodo)
       })   
 
