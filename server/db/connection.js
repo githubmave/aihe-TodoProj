@@ -36,24 +36,26 @@ function addTodo(todo, db= connection) {
        return getTodoById(ids[0])
 
      }) 
-}
-
-
-function updateTodo(currId,todo,db=connection){
-
+}   
+      
+         
+function updateTodo(id,updatedTodo,db=connection){
+ 
       return db('todos')
-         .update(todo)
-         .where('id',currId)
-         .then((rowChanged) => {
+         .update(updatedTodo)
+         .where('id',id)
+         
+        
+         .then(() => {
 
               return getTodoById(id)
          })
 
 }
 
-function deleteTodo(currId,db=connection){
+function deleteTodo(id,db=connection){
       return db('todos')
-         .where('id',currId)
+         .where('id',id)
          .delete()
 }
 

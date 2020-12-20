@@ -51,9 +51,9 @@ router.post( '/' ,(req,res)=> {
 
 router.patch( '/:id',(req,res)=>{
     const id = Number(req.params.id)
-    const currTodo=req.body
+    const updatedTodo=req.body
 
-    updateTodo(id,currTodo)
+    updateTodo(id,updatedTodo)
       
       .then( currTodo => {
         res.json(currTodo) 

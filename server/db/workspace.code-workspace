@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": "../.."
+		},
+		{
+			"path": "../../../aihe-book"
+		},
+		{
+			"path": "../../../aihe/week7_FullStack_Sqlit-Knex-Express-React-Redux-makeREST-Todos/todo-full-stack-DONE"
+		},
+		{
+			"path": "../../../aihe/week7_FullStack_Sqlit-Knex-Express-React-Redux-makeREST-Todos/todo-full-stack-JV-SOLUTION-TEST"
+		},
+		{
+			"path": "../../../aihe/week4.2_React_setState_MouseDragGreen/memory-SOLUTION"
+		}
+	],
+	"settings": {}
+}

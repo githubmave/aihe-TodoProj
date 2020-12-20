@@ -1,17 +1,23 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import TodoItem from './TodoItem'
 
+ 
 
+// const TodoList = ({todoArr}) =>{
 
-const TodoList = ({todoArr}) =>{
+class TodoList extends React.Component{
 
-  
+   
+    render(){
      return(
 
         <div >
-        <ul >
+        <ul className="todo-list">
 
-     {todoArr.map( (todoIt,i) => (<li key={i}>{todoIt.todoName}<button >Delete</button></li>  ))}
+     {/* {todoArr.map( (todoIt,i) => (<li key={i}>{todoIt.todoName}<button >Delete</button></li>  ))} */}
+
+         {this.props.todoArr.map( (todoIt,i)=><li key = {i}> <TodoItem  todo={todoIt}/> </li> )}
         </ul>
 
 
@@ -19,7 +25,7 @@ const TodoList = ({todoArr}) =>{
 
 
      )  
-
+   }
 
 }
 

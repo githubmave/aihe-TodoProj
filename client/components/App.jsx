@@ -9,7 +9,7 @@ import {recieveItems} from '../actions/todosAc'
 
 class App extends React.Component {
   state = { 
-    todoNm: ''
+    todoName: ''
   
   }  
             
@@ -50,7 +50,7 @@ class App extends React.Component {
       <>
 
         <header className="header">
-          <h1>My Todo List
+          <h1>My Todo 
           
           </h1>
           
@@ -64,9 +64,9 @@ class App extends React.Component {
         </header>
          
         <section className="main">
-          {/* <TodoList /> */}
+          <TodoList />
        
-              <ul >
+              {/* <ul >
                   {this.props.todoArr.map((todoIt,i) =>
                                      
                   <li key={i} >{todoIt.todoName} 
@@ -76,9 +76,9 @@ class App extends React.Component {
                   </li>       
 
                   )}
-              </ul>   
+              </ul>    */}
 
-             
+               
 
           </section>
        
