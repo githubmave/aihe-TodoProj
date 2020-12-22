@@ -33,10 +33,10 @@ export function addTodo (newTodo){
 //        })
 // }
 
-export function updateTodo(id,updatedTodo){
+export function updateTodo(id,updatedTodoName){
 
   return request.patch(`/api/v1/todos/${id}`)
-                .send({todoName:updatedTodo.todoName})
+                .send({todoName:updatedTodoName})
                 .then(responds  => responds.body
                   )
 }
