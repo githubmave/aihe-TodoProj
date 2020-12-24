@@ -4,13 +4,10 @@
 			"path": "../.."
 		},
 		{
-			"path": "../../../aihe/week6.3_Redux-CombineReducer_ActionCreator_ExtraAPI/Answer-me"
+			"path": "../../../aihe/week7_FullStack_Sqlit-Knex-Express-React-Redux-makeREST-Todos/todo-full-stack-DONE"
 		},
 		{
-			"path": "../../../aihe/week6.3_Redux-CombineReducer_ActionCreator_ExtraAPI/async-redux-stories-Form-Submit-UseGlbState"
-		},
-		{
-			"path": "../../../aihe/week6.3_Redux-CombineReducer_ActionCreator_ExtraAPI/sweet-as-beers"
+			"path": "../../../aihe/week7_FullStack_Sqlit-Knex-Express-React-Redux-makeREST-Todos"
 		}
 	],
 	"settings": {}

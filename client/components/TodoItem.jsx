@@ -1,7 +1,7 @@
 import React from 'react'
-import {connect} from 'react-redux'
 import {updateTodo} from '../apis/api'
 //import {updateItem} from '../actions/todosAc'
+import {connect} from 'react-redux'
 
 
 class TodoItem extends React.Component{
@@ -10,36 +10,13 @@ class TodoItem extends React.Component{
      constructor(props) {
         super(props)
          this.state = {
-               todoName: '',
+               //todoName: '',
+               updatedTodoName: '',
                editable:false
     }
   }
 
-    //  }
-          // state = {
-          //     todoName: '' ,
-          //     priority: 'high',
-          //     completed: false
-          // }
-          // state = {
-
-          //    editable: false,
-          //    todoName: ''
-          
-              
-
-          // }
-
-        //  let taskName=this.props.todoItem.todoName
-
-          // const updatedTodo = {
-
-          //       todoName: this.state.todoName,
-          //       priority:"high",
-          //       completed: false
-          // }
-          
-
+  
    
     handleChange = (e) => {
      
@@ -47,7 +24,7 @@ class TodoItem extends React.Component{
       // return this.state
       console.log("TodoItem-handleChange-todoName:",e.target.value)
 
-      return  this.setState({todoName: e.target.value})
+      return  this.setState({updatedTodoName: e.target.value})
     }
     
     handleDoubleClick = (e) => {
@@ -88,8 +65,8 @@ class TodoItem extends React.Component{
                                  /> */}
 
                                     <input className="new-todo"
-                                      type = "text" placeholder = {this.props.todoItem.todoName} autoFocus={true}
-                                      value ={this.state.todo}onChange={this.hanldeChange}
+                                      placeholder = {this.props.todoItem.todoName} autoFocus={true}
+                                      type = "text" value ={this.state.todoName} onChange={this.hanldeChange}
                                     />
 
                                                   
