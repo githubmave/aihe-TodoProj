@@ -1,7 +1,7 @@
 
 import request from 'superagent'
-import {addItem,deleteItem,updateItem} from '../actions/todosAc'
-
+import {deleteItem,updateItem} from '../actions/todosAc'
+  
 
 // const todosUrl = 'http://localhost:3000/api/v1/todos'
 // const deleteUrl = 'http://localhost:3000/api/v1/todos/'
@@ -33,12 +33,13 @@ export function addTodo (newTodo){
 //        })
 // }
 
-export function updateTodo(id,updatedTodoName){
-
+export function updateTodo(id,updatedTodoName,dispatch){
+  console.log("TodoItem call api, updatedTodoName: ",updatedTodoName)
   return request.patch(`/api/v1/todos/${id}`)
                 .send({todoName:updatedTodoName})
-                .then(responds  => responds.body
-                  )
+                // .then(responds  => responds.body
+                //   )
+                .then( responds =>dispatch(updateItem(id,responds.body)))
 }
 
 

@@ -1,19 +1,19 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {updateTodo} from '../apis/api'
-import {updateItem} from '../actions/todosAc'
+//import {updateItem} from '../actions/todosAc'
 
 
 class TodoItem extends React.Component{
 
 
-    //  constructor(props) {
-    //     super(props)
-    //      this.state = {
-    //            todoName: '',
-    //            priority: '',
-    //            completed: false
-    //      }
+     constructor(props) {
+        super(props)
+         this.state = {
+               todoName: '',
+               editable:false
+    }
+  }
 
     //  }
           // state = {
@@ -21,14 +21,16 @@ class TodoItem extends React.Component{
           //     priority: 'high',
           //     completed: false
           // }
-          state = {
+          // state = {
 
-             editable: false,
-             todoName: ''
+          //    editable: false,
+          //    todoName: ''
           
               
 
-          }
+          // }
+
+        //  let taskName=this.props.todoItem.todoName
 
           // const updatedTodo = {
 
@@ -38,11 +40,12 @@ class TodoItem extends React.Component{
           // }
           
 
-
+   
     handleChange = (e) => {
      
 
       // return this.state
+      console.log("TodoItem-handleChange-todoName:",e.target.value)
 
       return  this.setState({todoName: e.target.value})
     }
@@ -61,7 +64,7 @@ class TodoItem extends React.Component{
     
     handleFormSubmit = (e) => {
            e.preventDefault()
-           updateTodo(this.props.todoItem.id, this.state.todoName)
+           updateTodo(this.props.todoItem.id, this.state.todoName,this.props.dispatch)
             // .then(updatedTodo => this.props.dispatch(updateItem(updatedTodo)))
           //  this.setState({todoName: ''})
           this.setState({editable: false})
@@ -76,29 +79,19 @@ class TodoItem extends React.Component{
                 
                   { this.state.editable == false && <label onDoubleClick={this.handleDoubleClick}>{this.props.todoItem.todoName}</label>
                   }
-                    {/* <form onSubmit = {this.handleFormSubmit}>
-                        <input className = "new-todo"
-                            // placeholder={this.props.todo.todoName}
-                            type = 'text' value={this.state.todoName}
-                            onChange={this.handleChange}
-                          
-                        />
-
-                        <input  
-                        
-                              type = "submit" value = "Update" onClick={this.handleClickUpdate}
-                        />
-
-                        
-                       </form>  */}
-                        
-                        
-                          {this.state.editable && 
+                    
+                          { this.state.editable && 
                                <form onSubmit={this.handleFormSubmit}>
-                                 <input className="new-todo"
+                                 {/* <input className="new-todo"
                                   type = "text" placeholder = {this.props.todoItem.todoName} 
                                   value={this.state.todoNm} onChange={this.hanldeChange}
-                                 />
+                                 /> */}
+
+                                    <input className="new-todo"
+                                      type = "text" placeholder = {this.props.todoItem.todoName} autoFocus={true}
+                                      value ={this.state.todo}onChange={this.hanldeChange}
+                                    />
+
                                                   
                                </form>
                           }          
