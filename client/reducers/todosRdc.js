@@ -1,10 +1,15 @@
-import { RECIEVE_TODOS, UPDATE_TODO} from '../actions/todosAc'
+import { RECIEVE_TODOS, UPDATE_TODO,ADD_TODO} from '../actions/todosAc'
 
 //const initialState = []
 const todosRdc = (state = [], action) => {
   switch (action.type) {
     case RECIEVE_TODOS:
       return action.todoData
+
+    case ADD_TODO:
+      let {id, priority, todoName,completed} =action.newTodo
+     // return action.newTodo
+     return [...state, {id,priority,todoName,completed}]
 
     case UPDATE_TODO:
        return state.map( todo => {
@@ -21,4 +26,4 @@ const todosRdc = (state = [], action) => {
   }
 }
 
-export default todosRdc
+export default todosRdc        

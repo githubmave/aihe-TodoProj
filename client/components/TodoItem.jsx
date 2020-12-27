@@ -37,11 +37,11 @@ class TodoItem extends React.Component{
     //     this.setState({todoName: ''})
 
     //   return this.state
-    // }
-    
+    // }         
+        
     handleFormSubmit = (e) => {
            e.preventDefault()
-           updateTodo(this.props.todoItem.id, this.state.todoName,this.props.dispatch)
+           updateTodo(this.props.todoItem.id, this.state.updatedTodoName,this.props.dispatch)
             // .then(updatedTodo => this.props.dispatch(updateItem(updatedTodo)))
           //  this.setState({todoName: ''})
           this.setState({editable: false})
@@ -49,7 +49,7 @@ class TodoItem extends React.Component{
 
     render(){
 
-      return (
+      return ( 
      
               <div classn="view">
                  <input className="toggle" type="checkbox" onChange={this.handleChange}/>
