@@ -6,23 +6,19 @@ import TodoItem from './TodoItem'
 
 
 
-const TodoList = ({todoArr}) => (
+const TodoList = ({todoArr}) => {
        
-   //  componentDidMount () {
+    
+      return(
+        
+            <div>
 
-   //      getTodos()
-   //       .then( todos => this.props.dispatch(receiveItems(todos)))
-
-   //  }
-
-       <div>
-
-          <ul className="todo-list">
-             {todoArr.map( (todoItem,i)=>{return <TodoItem todoName={todoItem.todoName}/>})}
-          </ul>
-       </div>
-       
-)
+               <ul className="todo-list">
+                  {todoArr.map( (todoItem,i)=>{return <TodoItem key={i} todoName={todoItem.todoName}/>})}
+               </ul>
+            </div>
+       )
+   }
 
 //    return (
 
