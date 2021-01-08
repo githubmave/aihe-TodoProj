@@ -11,7 +11,7 @@ export const RECIEVE_TODOS = 'RECIEVE_TODOS'
 //         }
 // }
 
-export const recieveItems = (todoData) => {
+export const receiveItems = (todoData) => {
 
      return {
         type:RECIEVE_TODOS,
