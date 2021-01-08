@@ -14,7 +14,7 @@ const TodoList = ({todoArr}) => {
             <div>
 
                <ul className="todo-list">
-                  {todoArr.map( (todoItem,i)=>{return <TodoItem key={i} todoName={todoItem.todoName}/>})}
+                  {todoArr.map( (todoItem,i)=>{return <TodoItem key={i} todoName={todoItem.todoName} todoId={todoItem}/>})}
                </ul>
             </div>
        )

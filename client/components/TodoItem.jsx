@@ -2,49 +2,39 @@ import React from 'react'
 import {connect} from 'react-redux'
 
 
-// class TodoItem extends React.Component{
 
-//      state={
-//           todoName: this.props.todoItem.todoName,
-//           todoId: this.props.todoId
+class TodoItem extends React.Component{
 
-//      }
+          state = {
 
+               id: this.props.todoId
+          }
 
+          render(){
 
-//          render(){
-//            return(
+              return(
 
+                      <li className="view" >{this.props.todoName}</li>
+              )
 
-//                 <div className="view">
-
-//                      {/* <p>I am testing TodoItem</p> */}
-//                     <li key = {this.props.todoId} >{this.props.todoItem.todoName}</li>
-                    
+          }
 
 
 
-//                 </div>
-
-//            )
-
-
-//          }
-
-// }
-
-const TodoItem = ({todoName}) =>{
-
-
-
-     return (
-
-          <div className="view">
-            <li>{todoName}</li>
-
-          </div>
-     )
 }
+
+// const TodoItem = ({todoName}) =>{
+
+
+
+//      return (
+
+//           <div className="view">
+//             <li>{todoName}</li>
+
+//           </div>
+//      )
+// }
 
 
 export default connect()(TodoItem)
