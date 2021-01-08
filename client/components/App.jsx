@@ -5,7 +5,7 @@ import AddTodo from './AddTodo'
 import TodoList from './TodoList'
 import {getTodos} from '../apis/api'
 
-import {recieveItems} from '../actions/todosAc'
+import {receiveItems, recieveItems} from '../actions/todosAc'
 
 class App extends React.Component {
   // state = { 
@@ -21,6 +21,12 @@ class App extends React.Component {
   //    })
        
   // }
+  componentDidMount(){
+
+       getTodos()
+        .then(todos =>this.props.dispatch(receiveItems(todos)))
+
+  }
 
   handleDelete = (e,id) => {
     e.preventDefault()
@@ -90,13 +96,14 @@ class App extends React.Component {
 }
 
 //export default App
-function mapStateToProps (globalState) {
-  return {
+// function mapStateToProps (globalState) {
+//   return {
    
-    todoArr: globalState.todosRdc
+//     todoArr: globalState.todosRdc
 
     
-  }
-}
+//   }
+// }
 
-export default connect(mapStateToProps)(App)
+// export default connect(mapStateToProps)(App)
+export default connect()(App)

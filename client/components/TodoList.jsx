@@ -6,59 +6,66 @@ import TodoItem from './TodoItem'
 
 
 
-// const TodoList = ({todoArr}) =>{  Mave Comment: todoArr is global state , is not a props, SO , IT IS A WRONG USAGE 
+const TodoList = ({todoArr}) => (
+       
+   //  componentDidMount () {
 
-  
-//      return(
+   //      getTodos()
+   //       .then( todos => this.props.dispatch(receiveItems(todos)))
 
-//         <div >
-//         <ul >
+   //  }
 
-//      {/* {todoArr.map( (todoIt,i) => (<li key={i}>{todoIt.todoName}<button >Delete</button></li>  ))} */}
+       <div>
 
-//         {todoArr.map( (todoItem,i)=>{return <TodoItem todoItem = {todoItem} todoId={todoItem.id}/>} )}
-//         </ul>
+          <ul className="todo-list">
+             {todoArr.map( (todoItem,i)=>{return <TodoItem todoName={todoItem.todoName}/>})}
+          </ul>
+       </div>
+       
+)
+
+//    return (
 
 
-//         </div>
-
-
-//      )  
-
-
+//       <div>
+//         <ul className="todo-list">
+//          {todoArr.map( (todoItem,i)=>{return <TodoItem key={i} todoName={TodoItem.todoName}  todoId={todoItem.id} />})}
+//          </ul> 
+//       </div>
+//    )
 // }
 
-class TodoList extends React.Component{
+// class TodoList extends React.Component{
 
           
 
-           componentDidMount(){
-              getTodos()
-              .then( todos=> this.props.dispatch(receiveItems(todos)))           
+//            componentDidMount(){
+//               getTodos()
+//               .then( todos=> this.props.dispatch(receiveItems(todos)))           
 
-           }
+//            }
 
-     render(){
+//      render(){
       
-        return (
+//         return (
 
-              <div>
+//               <div>
 
-                  <ul>
-                     {this.props.todoArr.map( (todoItem,i)=>{return <TodoItem  todoItem={todoItem} todoId={todoItem.id} />})}
-
-
-                  </ul>
-
-              </div>
+//                   <ul>
+//                      {this.props.todoArr.map( (todoItem,i)=>{return <TodoItem  todoItem={todoItem} todoId={todoItem.id} />})}
 
 
-        )
+//                   </ul>
+
+//               </div>
+
+
+//         )
 
           
 
-     }
-}
+//      }
+// }
 
 const mapStateToProps = (state)=>{
    return {

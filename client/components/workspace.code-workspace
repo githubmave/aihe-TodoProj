@@ -2,6 +2,9 @@
 	"folders": [
 		{
 			"path": "../.."
+		},
+		{
+			"path": "../../../aihe-TodoProj-1"
 		}
 	],
 	"settings": {}
