@@ -1,4 +1,5 @@
 export const RECIEVE_TODOS = 'RECIEVE_TODOS'
+export const ADD_TODO = 'ADD-TODO'
 // export const ADD_TODO = 'ADD_TODO'
 // export const DELETE_TODO = 'DELETE_TODO'
 // export const UPDATE_TODO = 'UPDATE_TODO'
@@ -19,6 +20,17 @@ export const receiveItems = (todoData) => {
 
      }
 }
+
+export const addItem = (newTodo) => {
+     return {
+
+           type:  ADD_TODO,
+           newTodo: newTodo
+     }
+   
+}     
+
+
 // export const addItem = (newTodo) => {
 
 //       return {

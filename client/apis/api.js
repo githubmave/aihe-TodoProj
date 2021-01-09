@@ -1,5 +1,6 @@
 
 import request from 'superagent'
+
 import {addItem,deleteItem,updateItem} from '../actions/todosAc'
 
 
@@ -12,14 +13,23 @@ export function getTodos () {
     .then(response => response.body)     
 }  
 
-export function addTodo (newTodo){
-  console.log("api,li 21,recieve newTodo from AddTodo",newTodo)
-  return request
-    .post ('/api/v1/todos')
-    .send({todoName: newTodo.todoName,priority:newTodo.priority,completed:newTodo.completed})
-    .then((res) => {      
-        res.body
-    })
+// export function addTodo (newTodo){
+//   console.log("api,li 21,recieve newTodo from AddTodo",newTodo)
+//   return request
+//     .post ('/api/v1/todos')
+//     .send({todoName: newTodo.todoName,priority:newTodo.priority,completed:newTodo.completed})
+//     .then((res) => {      
+//         res.body
+//     })
+// }
+
+export function addTodo(newTodo,dispatch){
+
+        return request
+             .pos('/api/v1/todos')
+             .send({todoName:newTodo.todoName})
+             .then( res=>{dispatch(addItem(res.body))})
+
 }
 
 // export function updateTodo(id, updatedTodo,dispatch){
