@@ -1,11 +1,4 @@
 
-
-
-
-
-
-
-
 import React from 'react'
 import { connect } from 'react-redux'
 import {getTodos} from '../apis/api'
@@ -17,7 +10,7 @@ class TodoList extends React.Component{
 
        componentDidMount(){
            getTodos()
-             .then( todos => this.props.dispatch(receiveItem(todos)))
+             .then( todos => this.props.dispatch(receiveItems(todos)))
 
        }
 
@@ -26,7 +19,8 @@ class TodoList extends React.Component{
  
             <div>
                 <ul className="todo-list">
-                   {this.props.todoArr}
+                   {this.props.todoArr.map((todoItem,i) =>{return <TodoItem key={i} todoName={todoItem.todoName}/> })}
+                   
                 </ul>
 
             </div>

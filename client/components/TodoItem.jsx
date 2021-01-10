@@ -5,16 +5,26 @@ import {connect} from 'react-redux'
 
 class TodoItem extends React.Component{
 
-          state = {
+        //   state = {
 
-               id: this.props.todoId
-          }
+        //        id: this.props.todoId
+        //   }
+
+        constructor(props){
+
+            super(props)
+            this.state ={
+
+                todoName: props.todoName
+            }
+
+        }
 
           render(){
 
               return(
 
-                      <li className="view" >{this.props.todoName}</li>
+                      <li className="view" >{this.state.todoName}</li>
               )
 
           }
