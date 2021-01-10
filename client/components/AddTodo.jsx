@@ -12,7 +12,7 @@ class AddTodo extends React.Component {
      priority: "high",
      completed: true
   }
-
+ 
   handleChange = (evt) => {
     //console.log("AddTodo,li 16,new todoNm",this.state.todoNm)
     return this.setState({todoName: evt.target.value,priority:"low",completed:false})

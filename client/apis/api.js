@@ -11,7 +11,7 @@ export function getTodos () {
   return request
     .get('/api/v1/todos')
     .then(response => response.body)     
-}  
+}   
 
 // export function addTodo (newTodo){
 //   console.log("api,li 21,recieve newTodo from AddTodo",newTodo)
@@ -26,7 +26,7 @@ export function getTodos () {
 export function addTodo(newTodo,dispatch){
 
         return request
-             .pos('/api/v1/todos')
+             .post('/api/v1/todos')
              .send({todoName:newTodo.todoName})
              .then( res=>{dispatch(addItem(res.body))})
 

@@ -21,12 +21,12 @@ class App extends React.Component {
   //    })
        
   // }
-  componentDidMount(){
+  // componentDidMount(){
 
-       getTodos()
-        .then(todos =>this.props.dispatch(receiveItems(todos)))
+  //      getTodos()
+  //       .then(todos =>this.props.dispatch(receiveItems(todos)))
 
-  }
+  // }
 
   handleDelete = (e,id) => {
     e.preventDefault()

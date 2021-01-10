@@ -13,20 +13,47 @@ import {receiveItems} from '../actions/todosAc'
 import TodoItem from './TodoItem'
 
 
+class TodoList extends React.Component{
 
-const TodoList = ({todoArr}) => {
+       componentDidMount(){
+           getTodos()
+             .then( todos => this.props.dispatch(receiveItem(todos)))
+
+       }
+
+    render(){
+        return(
+ 
+            <div>
+                <ul className="todo-list">
+                   {this.props.todoArr}
+                </ul>
+
+            </div>
+
+
+        )
+
+
+
+    }
+}
+
+// const TodoList = ({todoArr}) => {
        
     
-      return(
+//       return(
         
-            <div>
+//             <div>
 
-               <ul className="todo-list">
-                  {todoArr.map( (todoItem,i)=>{return <TodoItem key={i} todoName={todoItem.todoName} todoId={todoItem}/>})}
-               </ul>
-            </div>
-       )
-   }
+//                <ul className="todo-list">
+//                   {todoArr.map( (todoItem,i)=>{return <TodoItem key={i} todoName={todoItem.todoName} todoId={todoItem}/>})}
+//                </ul>
+//             </div>
+//        )
+// }
+
+
 
 //    return (
 
