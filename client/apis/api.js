@@ -16,7 +16,7 @@ export function getTodos(dispatch){
 
      return request
            .get('/api/v1/todos')
-           .then(reponds => {dispatch(receiveItems(reponds.body))})
+           .then(reponds => dispatch(receiveItems(reponds.body)))
 }
 
 // export function addTodo (newTodo){
@@ -36,6 +36,13 @@ export function addTodo(newTodo,dispatch){
              .send({todoName:newTodo.todoName})
              .then( res=>{dispatch(addItem(res.body))})
 
+}
+
+export function updateTodo(updatedId,updatedTodo,dispatch){
+     return request
+       .patch('/api/v1/todos/'+updatedId)
+       .send({id:updatedId,todoName:updatedTodo})
+       .then(responds =>dispatch(updateItem()))
 }
 
 // export function updateTodo(id, updatedTodo,dispatch){

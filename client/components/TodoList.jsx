@@ -6,16 +6,18 @@ import {receiveItems} from '../actions/todosAc'
 import TodoItem from './TodoItem'
 
 
-class TodoList extends React.Component{
+//class TodoList extends React.Component{
+    const TodoList = ({todoArr}) => {
 
     
 
-    render(){
+    //render(){
         return(
  
             <div>
                 <ul className="todo-list">
-                   {this.props.todoArr.map((todoItem,i) =>{return <TodoItem key={i} todoName={todoItem.todoName}/> })}
+                   {todoArr.map((todoItem,i) =>{return <TodoItem key={i} todoName={todoItem.todoName}/> })}
+
                    
                 </ul>
 
@@ -24,9 +26,7 @@ class TodoList extends React.Component{
 
         )
 
-
-
-    }
+    
 }
 
 // const TodoList = ({todoArr}) => {
