@@ -1,17 +1,23 @@
 
 import request from 'superagent'
 
-import {addItem,deleteItem,updateItem} from '../actions/todosAc'
+import {addItem,deleteItem,updateItem,receiveItems} from '../actions/todosAc'
 
 
 // const todosUrl = 'http://localhost:3000/api/v1/todos'
 // const deleteUrl = 'http://localhost:3000/api/v1/todos/'
 
-export function getTodos () {
-  return request
-    .get('/api/v1/todos')
-    .then(response => response.body)     
-}   
+// export function getTodos () {
+//   return request
+//     .get('/api/v1/todos')
+//     .then(response => response.body)     
+// }   
+export function getTodos(dispatch){
+
+     return request
+           .get('/api/v1/todos')
+           .then(reponds => {dispatch(receiveItems(reponds.body))})
+}
 
 // export function addTodo (newTodo){
 //   console.log("api,li 21,recieve newTodo from AddTodo",newTodo)
@@ -24,7 +30,7 @@ export function getTodos () {
 // }
 
 export function addTodo(newTodo,dispatch){
-
+ 
         return request
              .post('/api/v1/todos')
              .send({todoName:newTodo.todoName})

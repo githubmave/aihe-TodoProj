@@ -5,7 +5,7 @@ import AddTodo from './AddTodo'
 import TodoList from './TodoList'
 import {getTodos} from '../apis/api'
 
-import {receiveItems, recieveItems} from '../actions/todosAc'
+//import {receiveItems, recieveItems} from '../actions/todosAc'
 
 class App extends React.Component {
   // state = { 
@@ -13,21 +13,24 @@ class App extends React.Component {
   
   // }  
             
-  // componentDidMount () {
-
-  //   getTodos()
-  //    .then(todos => {
-  //          this.props.dispatch(recieveItems(todos))
-  //    })
-       
-  // }
+ 
   // componentDidMount(){
 
   //      getTodos()
   //       .then(todos =>this.props.dispatch(receiveItems(todos)))
 
   // }
+  // componentDidMount(){
+  //      getTodos()
+  //       .then( todos =>this.props.dispatch(receiveItems(todos)))
 
+  // } 
+   componentDidMount(){
+
+         getTodos(this.props.dispatch)
+         
+   }
+   
   handleDelete = (e,id) => {
     e.preventDefault()
     console.log("button is clicked")

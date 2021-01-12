@@ -8,11 +8,7 @@ import TodoItem from './TodoItem'
 
 class TodoList extends React.Component{
 
-       componentDidMount(){
-           getTodos()
-             .then( todos => this.props.dispatch(receiveItems(todos)))
-
-       }
+    
 
     render(){
         return(

@@ -18,7 +18,7 @@ class TodoItem extends React.Component{
                 todoName: props.todoName
             }
 
-        }
+        } 
 
           render(){
 
