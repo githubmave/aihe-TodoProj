@@ -42,7 +42,7 @@ export function updateTodo(updatedId,updatedTodo,dispatch){
      return request
        .patch('/api/v1/todos/'+updatedId)
        .send({id:updatedId,todoName:updatedTodo})
-       .then(responds =>dispatch(updateItem()))
+       .then(responds =>dispatch(updateItem(updatedId,responds.body)))
 }
 
 // export function updateTodo(id, updatedTodo,dispatch){

@@ -42,6 +42,11 @@ class TodoItem extends React.Component{
             return this.setState({todoName: e.target.value})
             
        }
+       handleSubmit = (e) =>{
+            e.preventDefault()
+
+           
+       }
 
         // handleChange = () => {
 
@@ -61,7 +66,12 @@ class TodoItem extends React.Component{
                         {/* {this.state.editable&& <input type="text" value={this.state.todoName} onChange={this.handleChange}/>} */}
 
                      {/* { !this.state.editable&& <label onDoubleClick={this.handleDoubleClick} >{this.state.todoName}</label>} */}
-                     <input className="new-todo" type="text" value={this.state.todoName} onChange={this.handleChange} />
+                    
+                     <form onSubmit={this.handleSubmit}>
+
+                        <input className="new-todo" type="text" value={this.state.todoName} onChange={this.handleChange} />
+
+                     </form>
                      
                     </li>
                    </div>

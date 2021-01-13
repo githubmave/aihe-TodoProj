@@ -30,6 +30,16 @@ export const addItem = (newTodo) => {
    
 }     
 
+export const updateItem = (id,updatedTodo) => {
+
+    return {
+         type: UPDATE_TODO,
+         id,
+         updatedTodo
+
+    }
+
+}
 
 // export const addItem = (newTodo) => {
 
