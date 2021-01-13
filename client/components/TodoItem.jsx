@@ -51,8 +51,10 @@ class TodoItem extends React.Component{
             
        }
        handleClick = (e) => {
-        e.preventDefault()
-        return deleteTodo(this.state.todoId,this.props.dispatch)
+       // e.preventDefault()
+       // return deleteTodo(this.state.todoId,this.props.dispatch)
+       console.log("TodoItem.jsx/handleClick(id)",this.state.todoId)
+         return deleteTodo(this.state.todoId,this.props.dispatch)
        }
 
         // handleChange = () => {
