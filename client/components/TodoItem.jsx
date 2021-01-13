@@ -1,7 +1,7 @@
 
 import React from 'react'
 import {connect} from 'react-redux'
-import {updateTodo} from '../apis/api'
+import {deleteTodo, updateTodo} from '../apis/api'
 
 
 
@@ -50,6 +50,10 @@ class TodoItem extends React.Component{
             
             
        }
+       handleClick = (e) => {
+        e.preventDefault()
+        return deleteTodo(this.state.todoId,this.props.dispatch)
+       }
 
         // handleChange = () => {
 
@@ -64,22 +68,24 @@ class TodoItem extends React.Component{
 
                
                     <div className="view">
+                     
+
                     <li >
                         {/* {this.state.editable ==false &&<label onDoubleClick={this.handleDoubleClick}>{this.props.todoName}</label>} */}
                         {/* {this.state.editable&& <input type="text" value={this.state.todoName} onChange={this.handleChange}/>} */}
 
                      {/* { !this.state.editable&& <label onDoubleClick={this.handleDoubleClick} >{this.state.todoName}</label>} */}
-                    
                      <form onSubmit={this.handleSubmit}>
-
                         <input className="new-todo" type="text" value={this.state.todoName} onChange={this.handleChange} />
-
+                        
+    
                      </form>
                      
                     </li>
+                    <button className="destroy" onClick={this.handleClick}>Delete </button>
                    </div>
                    
-
+                   
               )
 
           }

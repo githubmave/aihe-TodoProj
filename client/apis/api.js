@@ -46,6 +46,12 @@ export function updateTodo(updatedId,updatedTodo,dispatch){
        .then(responds =>dispatch(updateItem(updatedId,responds.body)))
 }
 
+export function deleteTodo(id,dispatch){
+
+     return request
+        .delete('/api/v1/todos/'+id)
+        .then(res =>dispatch(deleteItem(id)) )
+}
 // export function updateTodo(id, updatedTodo,dispatch){
        
 //   return request
@@ -60,15 +66,15 @@ export function updateTodo(updatedId,updatedTodo,dispatch){
 
 
 
-export function deleteTodo(id,dispatch){
+// export function deleteTodo(id,dispatch){
 
-   return request
-     .delete(`/api/v1/todos/${id}`) 
-     .then(res => {
-          dispatch(deleteItem(id))
+//    return request
+//      .delete(`/api/v1/todos/${id}`) 
+//      .then(res => {
+//           dispatch(deleteItem(id))
 
-     })
-     .catch(error => console.log(error))
-}
+//      })
+//      .catch(error => console.log(error))
+// }
 
   
