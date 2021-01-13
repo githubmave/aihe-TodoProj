@@ -1,6 +1,7 @@
 
 import React from 'react'
 import {connect} from 'react-redux'
+import {updateTodo} from '../apis/api'
 
 
 
@@ -25,7 +26,8 @@ class TodoItem extends React.Component{
         state = {
 
             //todoName: this.props.todoName,
-            todoName: this.props.todoName
+            todoName: this.props.todoName,
+            todoId: this.props.todoId
 
 
             //editable: true
@@ -44,8 +46,9 @@ class TodoItem extends React.Component{
        }
        handleSubmit = (e) =>{
             e.preventDefault()
-
-           
+            updateTodo(this.state.todoId,this.state,this.props.dispatch)
+            
+            
        }
 
         // handleChange = () => {

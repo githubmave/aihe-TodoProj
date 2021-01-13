@@ -39,9 +39,10 @@ export function addTodo(newTodo,dispatch){
 }
 
 export function updateTodo(updatedId,updatedTodo,dispatch){
+     console.log("api/updateTodo(id,todo)",updatedId,updatedTodo)
      return request
        .patch('/api/v1/todos/'+updatedId)
-       .send({id:updatedId,todoName:updatedTodo})
+       .send({id:updatedId,todoName:updatedTodo.todoName})
        .then(responds =>dispatch(updateItem(updatedId,responds.body)))
 }
 

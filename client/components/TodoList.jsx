@@ -16,7 +16,7 @@ import TodoItem from './TodoItem'
  
             <div>
                 <ul className="todo-list">
-                   {todoArr.map((todoItem,i) =>{return <TodoItem key={i} todoName={todoItem.todoName}/> })}
+                   {todoArr.map((todoItem,i) =>{return <TodoItem key={i} todoId={todoItem.id} todoName={todoItem.todoName}/> })}
 
                    
                 </ul>
