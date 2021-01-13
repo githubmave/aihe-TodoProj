@@ -1,4 +1,4 @@
-import e from 'express'
+
 import React from 'react'
 import {connect} from 'react-redux'
 
@@ -20,28 +20,33 @@ class TodoItem extends React.Component{
         //     }
 
         // } 
+
+        
         state = {
 
-            todoName: this.props.todoName,
-            editable: false
+            //todoName: this.props.todoName,
+            todoName: this.props.todoName
+
+
+            //editable: true
         }
-
+        
  
-            
-        //  handleDoubleClick = (e) => {
-
-        //     this.setState({editable: true})
-        //  }
-        handleDoubleClick = (e) => {
-
+       handleDoubleClick= () =>{
 
             this.setState({editable: true})
-        }
 
-        handleChange = () =>{
+       }
 
+       handleChange = (e) => {
             return this.setState({todoName: e.target.value})
-        }
+            
+       }
+
+        // handleChange = () => {
+
+        //     return this.setState({todoName: e.target.value})
+        // }
 
           render(){
 
@@ -50,12 +55,16 @@ class TodoItem extends React.Component{
                     //  <li className="view" >{this.state.todoName}</li>
 
                
+                    <div className="view">
+                    <li >
+                        {/* {this.state.editable ==false &&<label onDoubleClick={this.handleDoubleClick}>{this.props.todoName}</label>} */}
+                        {/* {this.state.editable&& <input type="text" value={this.state.todoName} onChange={this.handleChange}/>} */}
 
-                   <li className="view">
-                       {!(this.state.editable)&&<label onDoubleClick={this.handleDoubleClick}>{this.state.todoName}</label>}
-                       {this.state.editable&& <input type="text" value={this.state.todoName} onChange={this.handleChange}/>}
-                   </li>
-
+                     {/* { !this.state.editable&& <label onDoubleClick={this.handleDoubleClick} >{this.state.todoName}</label>} */}
+                     <input className="new-todo" type="text" value={this.state.todoName} onChange={this.handleChange} />
+                     
+                    </li>
+                   </div>
                    
 
               )
