@@ -51,7 +51,7 @@ export function deleteTodo(id,dispatch){
      return request
         .delete('/api/v1/todos/'+id)
         .then(res =>dispatch(deleteItem(id)) )
-}
+} 
 // export function updateTodo(id, updatedTodo,dispatch){
        
 //   return request

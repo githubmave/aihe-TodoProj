@@ -59,11 +59,11 @@ class TodoItem extends React.Component{
        handleClick = (e) => {
        // e.preventDefault()
        // return deleteTodo(this.state.todoId,this.props.dispatch)
-       console.log("TodoItem.jsx/handleClick(id)",this.state.todoId,e.target.value)
+       console.log("TodoItem.jsx/handleClick(id)",this.state.todoId)
      //     return deleteTodo(this.state.todoId,this.props.dispatch)
           
           //  return deleteTodo(this.state.todoItem.id,this.props.dispatch)
-          return deleteTodo(this.state.id,this.props.dispatch)
+          return deleteTodo(this.state.todoId,this.props.dispatch)
        }
 
        handleCheck = (e) => {
@@ -91,7 +91,8 @@ class TodoItem extends React.Component{
                    <li className={className}>
                     <div className="view">
                          <input type="checkbox" className="toggle" onChange={this.handleCheck} checked={this.state.completed}/>
-                         {!(this.state.editable) && <label onDoubleClick={this.handleDoubleClick}>{this.state.todoName}</label>}
+                         {/* {!(this.state.editable) && <label onDoubleClick={this.handleDoubleClick}>{this.state.todoName}</label>} */}
+                         <input className="new-todo" type="text" value={this.state.todoName} onChange={this.handleChange}/>
                          <button onClick={this.handleClick} className="destroy"></button>
 
                         {this.state.editable &&
