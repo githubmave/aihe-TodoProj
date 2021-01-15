@@ -23,21 +23,27 @@ class TodoItem extends React.Component{
         // } 
 
         
+     //    state = {
+
+     //        //todoName: this.props.todoName,
+     //        todoName: this.props.todoName,
+     //        todoId: this.props.todoId,
+     //        editable:false
+
+
+     //        //editable: true
+     //    }
         state = {
 
-            //todoName: this.props.todoName,
-            todoName: this.props.todoName,
-            todoId: this.props.todoId
-
-
-            //editable: true
+             todoName: this.props.todoItem.todoName,
+             todoId: this.props.todoItem.id,
+             completed: this. props.todoItem.completed,
+             
+             editable: false
         }
-        
  
        handleDoubleClick= () =>{
-
-            this.setState({editable: true})
-
+            this.setState({editable: !editable})
        }
 
        handleChange = (e) => {
@@ -53,8 +59,21 @@ class TodoItem extends React.Component{
        handleClick = (e) => {
        // e.preventDefault()
        // return deleteTodo(this.state.todoId,this.props.dispatch)
-       console.log("TodoItem.jsx/handleClick(id)",this.state.todoId)
-         return deleteTodo(this.state.todoId,this.props.dispatch)
+       console.log("TodoItem.jsx/handleClick(id)",this.state.todoId,e.target.value)
+     //     return deleteTodo(this.state.todoId,this.props.dispatch)
+          
+          //  return deleteTodo(this.state.todoItem.id,this.props.dispatch)
+          return deleteTodo(this.state.id,this.props.dispatch)
+       }
+
+       handleCheck = (e) => {
+             return this.setState({completed: e.target.value})
+
+       }
+
+       handleDoubleClick = (e) => {
+
+          return this.setState({editable: true})
        }
 
         // handleChange = () => {
@@ -63,29 +82,42 @@ class TodoItem extends React.Component{
         // }
 
           render(){
-
+               let className = this.props.todoItem.completed ? 'completed' : ''
+                if(!className && this.state.editable) className='editing'
               return(
 
-                    //  <li className="view" >{this.state.todoName}</li>
-
-               
+                    <>
+                    
+                   <li className={className}>
                     <div className="view">
-                     
+                         <input type="checkbox" className="toggle" onChange={this.handleCheck} checked={this.state.completed}/>
+                         {!(this.state.editable) && <label onDoubleClick={this.handleDoubleClick}>{this.state.todoName}</label>}
+                         <button onClick={this.handleClick} className="destroy"></button>
 
-                    <li >
+                        {this.state.editable &&
+                              <form onSubmit={this.handleSubmit}>
+                                   <input className="new-todo" type="text" value={this.state.todoName} onChange={this.handleChange}/>
+                                   
+                              </form>  
+                       }                
                         {/* {this.state.editable ==false &&<label onDoubleClick={this.handleDoubleClick}>{this.props.todoName}</label>} */}
                         {/* {this.state.editable&& <input type="text" value={this.state.todoName} onChange={this.handleChange}/>} */}
 
                      {/* { !this.state.editable&& <label onDoubleClick={this.handleDoubleClick} >{this.state.todoName}</label>} */}
-                     <form onSubmit={this.handleSubmit}>
-                        <input className="new-todo" type="text" value={this.state.todoName} onChange={this.handleChange} />
-                        
-    
-                     </form>
+                     {/* <form  onSubmit={this.handleSubmit}>
+                        {!this.state.editable && <label onDoubleClick={this.handleDoubleClick}>{this.state.todoName}</label>}
+                        {this.state.editable &&<input className="new-todo" type="text" value={this.state.todoName} onChange={this.handleChange} />}
+                                             
+                     </form> */}
                      
-                    </li>
-                    <button className="destroy" onClick={this.handleClick}>Delete </button>
+                        
+                      {/* <button onClick={this.handleClick}> Delete</button>   */}
+                      
                    </div>
+
+                   </li>
+
+                   </>
                    
                    
               )

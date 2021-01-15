@@ -13,16 +13,19 @@ import TodoItem from './TodoItem'
 
     //render(){
         return(
- 
+           <>
+            <input id="toggle-all" className="toggle-all" type="checkbox"/>
+            <label htmlFor="toggle-all">Mark all as completed</label>
             <div>
                 <ul className="todo-list">
-                   {todoArr.map((todoItem,i) =>{return <TodoItem key={i} todoId={todoItem.id} todoName={todoItem.todoName}/> })}
+                   {/* {todoArr.map((todoItem,i) =>{return <TodoItem key={i} todoId={todoItem.id} todoName={todoItem.todoName}/> })} */}
+                   {todoArr.map( (todoItem,i) =>{return <TodoItem key={i} todoItem={todoItem}/>})}
 
                    
                 </ul>
 
             </div>
-
+           </>
 
         )
 
