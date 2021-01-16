@@ -1,17 +1,42 @@
                                                                                 
+                                                                                
 import request from 'superagent'
-import {updateItem,addTodoItem} from '../actions/todosAc'
+//import {getItems,updateItem,addTodoItem} from '../actions/todosAc'
   
 
 // const todosUrl = 'http://localhost:3000/api/v1/todos'
 // const deleteUrl = 'http://localhost:3000/api/v1/todos/'
 
-export function getTodos () {
-  return request
-    .get('/api/v1/todos')
-    .then(response => response.body)     
-}  
+// export function getTodos () {
+//   return request
+//     .get('/api/v1/todos')
+//     .then(response => response.body)     
+// }  
+// export function getTodos(dispatch) {
 
+//   return request
+//     .get('/api/v1/todos')
+//     .then(responds => dispatch(getItems(responds.body)))
+
+// }
+export function getTodos(){
+    return request 
+           .get('/api/v1/todos')
+           .then( res =>res.body)
+}
+
+export function addTodo(newTodo){
+
+    return request
+            .post('/api/v1/todos')
+            .send({todoName: newTodo.todoName})
+            .then(res => res.body)
+}
+export function deleteTodo(id){
+    return request
+           .delete('/api/v1/todos/'+id)
+           .then( res=>res.body )
+}
 // export function addTodo (newTodo){
 //   console.log("api,li 21,recieve newTodo from AddTodo",newTodo)
 //   return request
@@ -21,15 +46,15 @@ export function getTodos () {
 //         res.body
 //     })
 // }
- export function addTodo (newTodo,dispatch){
-  console.log("api,li 21,recieve newTodo from AddTodo",newTodo)
-  return request
-    .post ('/api/v1/todos')
-    .send({todoName: newTodo.todoName})
-    .then((res) => {      
-        dispatch(addTodoItem(res.body))
-    })
-}
+//  export function addTodo (newTodo,dispatch){
+//   console.log("api,li 21,recieve newTodo from AddTodo",newTodo)
+//   return request
+//     .post ('/api/v1/todos')
+//     .send({todoName: newTodo.todoName})
+//     .then((res) => {      
+//         dispatch(addTodoItem(res.body))
+//     })
+// }
 
 // export function updateTodo(id, updatedTodo,dispatch){
        

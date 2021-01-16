@@ -1,10 +1,10 @@
-import { RECIEVE_TODOS, UPDATE_TODO,ADD_TODO} from '../actions/todosAc'
+import { GET_TODOS, UPDATE_TODO,ADD_TODO,DELETE_TODO} from '../actions/todosAc'
 
 //const initialState = []
 const todosRdc = (state = [], action) => {
   switch (action.type) {
-    case RECIEVE_TODOS:
-      return action.todoData
+    case GET_TODOS:
+      return action.todos
 
     case ADD_TODO:
       let {id, priority, todoName,completed} =action.newTodo
@@ -19,7 +19,13 @@ const todosRdc = (state = [], action) => {
             }
           return todo
        })
-
+     case DELETE_TODO:
+       return state.filter(todo =>{
+         if(!(todo.id == action.id)){
+              return todo
+         }
+                  
+        } )
 
        default:
       return state

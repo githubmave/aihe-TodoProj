@@ -3,7 +3,9 @@ import { connect } from 'react-redux'
 
 import AddTodo from './AddTodo'
 import TodoList from './TodoList'
-import {getTodos} from '../apis/api'
+import {getTodoItems} from '../actions/todosAc'   
+//import {getTodos} from '../apis/api'
+
 
 import {recieveItems} from '../actions/todosAc'
 
@@ -12,13 +14,16 @@ class App extends React.Component {
     todoName: ''
   
   }  
-            
+               
   componentDidMount () {
 
-    getTodos()
-     .then(todos => {
-           this.props.dispatch(recieveItems(todos))
-     })
+    // getTodos()
+    //  .then(todos => {
+    //        this.props.dispatch(recieveItems(todos))
+    //  })
+    //getTodos(this.props.dispatch)
+      
+     getTodoItems(this.props.dispatch)
        
   }
 
@@ -50,7 +55,7 @@ class App extends React.Component {
       <>
 
         <header className="header">
-          <h1>Mave's Todo 
+          <h1>what to do
           
           </h1>
           

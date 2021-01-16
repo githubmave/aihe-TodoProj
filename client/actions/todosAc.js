@@ -1,5 +1,7 @@
 
-export const RECIEVE_TODOS = 'RECIEVE_TODOS'
+import {getTodos,addTodo, deleteTodo} from '../apis/api'
+
+export const GET_TODOS = 'GET_TODOS'
 export const UPDATE_TODO = 'UPDATE_TODO'
 export const ADD_TODO = 'ADD_TODO'
 
@@ -13,25 +15,26 @@ export const ADD_TODO = 'ADD_TODO'
 //            type: REQUEST_TODOS,
 
 //         }
-// }
+// } 
    
-export const recieveItems = (todoData) => {
+export const getItems = (todos) => {
 
      return {
-        type:RECIEVE_TODOS,
-        todoData
+        type:GET_TODOS,
+        todos
 
      }
 }
 
-export const addTodoItem = (newTodo) => {
+export const addItem = (addedTodo) => {
 
     return {
        type:ADD_TODO,
-       newTodo:newTodo
+       addedTodo
          
     }
 }
+
 
 export const updateItem = (id,updatedTodo) =>{
 
@@ -41,8 +44,31 @@ export const updateItem = (id,updatedTodo) =>{
      id
 
    }
-         
+       
 }  
+export const deletItem = (id) => {
+
+    return {
+
+        type: DELETE_TODO,
+        id
+    }
+}
+export function getTodoItems(dispatch){
+    return getTodos()
+       .then(todos => dispatch(getItems(todos)))
+
+}
+export function addTodoItem(newTodo,dispatch){
+   return addTodo(newTodo)
+           .then(addedTodo => dispatch(addItem(addedTodo)))
+     
+}
+
+export function deleteTodoItem(id,dispatch){
+   return deleteTodo(id)
+           .then( ()=> dispatch(deleteItem(id)))
+}
 // export const addItem = (newTodo) => {
 
 //       return {

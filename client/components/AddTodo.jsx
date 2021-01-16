@@ -2,7 +2,8 @@
 
 import React from 'react'
 import {connect} from 'react-redux'
-import { addTodo } from '../apis/api'
+//import { addTodo } from '../apis/api'
+import {addTodoItem} from '../actions/todosAc'
 
 
 class AddTodo extends React.Component {
@@ -21,7 +22,8 @@ class AddTodo extends React.Component {
 
   handleSubmit = (evt) => {
      evt.preventDefault()
-     addTodo(this.state,this.props.dispatch)
+     //addTodo(this.state,this.props.dispatch)
+     addTodoItem(this.state, this.props.dispatch)
      console.log("AddTodo,li 23,new todoNm",this.state)
     // this.setState({todoNm: ''})
 

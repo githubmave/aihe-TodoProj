@@ -17,7 +17,7 @@ class TodoList extends React.Component{
 
      {/* {todoArr.map( (todoIt,i) => (<li key={i}>{todoIt.todoName}<button >Delete</button></li>  ))} */}
 
-         {this.props.todoArr.map( (todoIt,i)=><li key = {i}> <TodoItem  todoItem={todoIt}/> </li> )}
+         {this.props.todoArr.map( (todoIt,i)=><li className="new-todo" key = {i}> <TodoItem  todoItem={todoIt}/> </li> )}
         </ul>
 
 
