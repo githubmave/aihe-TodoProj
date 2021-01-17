@@ -55,7 +55,7 @@ class App extends React.Component {
       <>
 
         <header className="header">
-          <h1>what to do
+          <h1>what to do next
           
           </h1>
           

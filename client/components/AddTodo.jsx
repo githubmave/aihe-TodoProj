@@ -7,12 +7,14 @@ import {addTodoItem} from '../actions/todosAc'
 
 
 class AddTodo extends React.Component {
-
+ 
   state = {
      todoName: "",
      priority: "high",
      completed: true
-  }
+  } 
+
+    
    
   handleChange = (evt) => {
     //console.log("AddTodo,li 16,new todoNm",this.state.todoNm)

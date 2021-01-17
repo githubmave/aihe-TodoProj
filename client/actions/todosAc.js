@@ -4,6 +4,7 @@ import {getTodos,addTodo, deleteTodo} from '../apis/api'
 export const GET_TODOS = 'GET_TODOS'
 export const UPDATE_TODO = 'UPDATE_TODO'
 export const ADD_TODO = 'ADD_TODO'
+export const DELETE_TODO = 'DELETE_TODO'
 
 // export const ADD_TODO = 'ADD_TODO'
 // export const DELETE_TODO = 'DELETE_TODO'
@@ -46,7 +47,7 @@ export const updateItem = (id,updatedTodo) =>{
    }
        
 }  
-export const deletItem = (id) => {
+export const deleteItem = (id) => {
 
     return {
 
@@ -64,10 +65,15 @@ export function addTodoItem(newTodo,dispatch){
            .then(addedTodo => dispatch(addItem(addedTodo)))
      
 }
-
+  
 export function deleteTodoItem(id,dispatch){
    return deleteTodo(id)
            .then( ()=> dispatch(deleteItem(id)))
+}
+
+export function updateTodoItem (id, updatedTodo){
+
+        return 
 }
 // export const addItem = (newTodo) => {
 

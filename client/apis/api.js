@@ -37,6 +37,7 @@ export function deleteTodo(id){
            .delete('/api/v1/todos/'+id)
            .then( res=>res.body )
 }
+
 // export function addTodo (newTodo){
 //   console.log("api,li 21,recieve newTodo from AddTodo",newTodo)
 //   return request
@@ -67,15 +68,15 @@ export function deleteTodo(id){
 //        })
 // }
 
-export function updateTodo(id,updatedTodoName,dispatch){
-  console.log("TodoItem call api, updatedTodoName: ",updatedTodoName)
-  return request.patch(`/api/v1/todos/${id}`)
-                .send({todoName:updatedTodoName})
-               // .then( responds =>dispatch(updateItem(id,responds.body)))
-                .then((res) =>{ dispatch(updateItem(id,res.body))
+// export function updateTodo(id,updatedTodoName,dispatch){
+//   console.log("TodoItem call api, updatedTodoName: ",updatedTodoName)
+//   return request.patch(`/api/v1/todos/${id}`)
+//                 .send({todoName:updatedTodoName})
+//                // .then( responds =>dispatch(updateItem(id,responds.body)))
+//                 .then((res) =>{ dispatch(updateItem(id,res.body))
 
-                })
-}
+//                 })
+// }
 
 
 // export function deleteTodo(id,dispatch){

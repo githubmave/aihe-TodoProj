@@ -7,9 +7,10 @@ const todosRdc = (state = [], action) => {
       return action.todos
 
     case ADD_TODO:
-      let {id, priority, todoName,completed} =action.newTodo
+     // let {id, priority, todoName,completed} =action.newTodo
      // return action.newTodo
-     return [...state, {id,priority,todoName,completed}]
+   // return [...state, {id,priority,todoName,completed}]
+    return [...state,action.addedTodo]
 
     case UPDATE_TODO:
        return state.map( todo => {
