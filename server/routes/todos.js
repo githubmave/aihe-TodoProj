@@ -7,9 +7,9 @@ const {getTodos} =require ("../db/connection")
 router.get('/' ,(req, res)=>{
 
     getTodos()
-     .then((todoLs) =>{
-        console.log("It is my list :",todoLs)
-         res.json(todoLs)
+     .then((todoLis) =>{
+        console.log("routes/todo.js/getTodos(/) It is my list :",todoLis)
+         res.json(todoLis)
      })
      .catch((err) => {
       console.log(err);
