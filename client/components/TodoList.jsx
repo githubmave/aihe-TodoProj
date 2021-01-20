@@ -15,7 +15,7 @@ const TodoList = ({todoArr}) =>(
         <ul className="todo-list">
 
      {/* {props.todoArr.map( (todoIt,i) => (<li key={i}>{todoIt.todoName}<button >Delete</button></li>  ))} */}
-         {todoArr.map( (todoItem,i)=> <li key={i}><TodoItem todoItem={todoItem}/></li>)}
+         {todoArr.map( (todoItem,i)=> <li key={i}><TodoItem todoItem={todoItem} /></li>)}
         </ul>
 
 

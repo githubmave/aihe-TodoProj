@@ -19,6 +19,16 @@ export function addTodo(newTodo,dispatch){
      //  .then( res=> dispatch(addItem(newTodo))) THIS LINE IS ALSO RIGHT
        .then(res => dispatch(addItem(res.body)))
     }
+
+export function updateTodo(id, updatedTodo,dispatch){
+        
+       return request
+          .patch('/api/v1/todos/'+id)
+          .send({id: id, todoName: updatedTodo.todoName})
+         // .then(res => dispatch(updateItem(id,updatedTodo)))
+          .then(res =>dispatch(deleteItem(id,res.body)))
+}
+
 export function deleteTodo(id, dispatch) {
   // console.log("api/deleteTodo(id) id:",id)
     return request 
