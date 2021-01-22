@@ -34,9 +34,22 @@ class AddTodo extends React.Component {
   render(){
     return (
       <> 
+        {/* <label className="edit">Enter a Todo:</label> */}
         <form onSubmit ={this.handleSubmit} >
-          <input className="new-todo" placeholder="What needs to be done?" 
-             autoFocus={true} type ='text' value={this.state.todoName} onChange={this.handleChange}/>
+          <h2>Enter a Todo:</h2>
+          <h3> Task
+            <input placeholder="What needs to be done?" 
+              autoFocus={true} type ='text' value={this.state.todoName} onChange={this.handleChange}/>
+          </h3>
+          <h3> Due day:
+            <input placeholder="What date needs to be done?" 
+              autoFocus={true} type ='text' value={this.state.todoName} onChange={this.handleChange}/>
+          </h3>
+          <h3> Priority
+            <input
+              autoFocus={true} type ='text' value={this.state.todoName} onChange={this.handleChange}/>
+          </h3>
+
         </form>
       </>
     )
