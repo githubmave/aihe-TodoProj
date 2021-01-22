@@ -9,23 +9,25 @@ class AddTodo extends React.Component {
 
   state = {
      todoName: "",
-     priority: "high",
-     completed: true
+     Due_Date: "March",
+     priority: "high"
+   //  completed: true
   }
 
-  handleChange = (evt) => {
-    //console.log("AddTodo,li 16,new todoNm",this.state.todoNm)
-    return this.setState({todoName: evt.target.value,priority:"low",completed:false})
-           
-          
-
+  handleChange = (e) => {
+   
+     const {name, value} = e.target
+ 
+    return this.setState({
+      [name]: value})
+  
   }
 
   handleSubmit = (evt) => {
      evt.preventDefault()
      addTodo(this.state,this.props.dispatch)
 
-     this.setState({todoName: ''})
+     this.setState({todoName: '',Due_Date: ''})
      console.log("AddTodo,li 23,new todoNm",this.state)
     // this.setState({todoNm: ''})
 
@@ -36,20 +38,17 @@ class AddTodo extends React.Component {
       <> 
         {/* <label className="edit">Enter a Todo:</label> */}
         <form onSubmit ={this.handleSubmit} >
-          <h2>Enter a Todo:</h2>
+          
           <h3> Task
-            <input placeholder="What needs to be done?" 
-              autoFocus={true} type ='text' value={this.state.todoName} onChange={this.handleChange}/>
+            <input type ='text' name="todoName" value={this.state.todoName} onChange={this.handleChange}/>
           </h3>
-          <h3> Due day:
-            <input placeholder="What date needs to be done?" 
-              autoFocus={true} type ='text' value={this.state.todoName} onChange={this.handleChange}/>
+          <h3> Due date
+            <input type ='text' name="Due_Date" value={this.state.Due_Date} onChange={this.handleChange}/>
           </h3>
           <h3> Priority
-            <input
-              autoFocus={true} type ='text' value={this.state.todoName} onChange={this.handleChange}/>
+            <input  type ='text' name="priority" value={this.state.priority} onChange={this.handleChange}/>
           </h3>
-
+              <input type="submit"  value="Add a Todo" />
         </form>
       </>
     )

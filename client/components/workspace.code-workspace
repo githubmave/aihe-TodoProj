@@ -2,6 +2,9 @@
 	"folders": [
 		{
 			"path": "../.."
+		},
+		{
+			"path": "../../../../aihe-book-Bak/aihe-book-5"
 		}
 	],
 	"settings": {}

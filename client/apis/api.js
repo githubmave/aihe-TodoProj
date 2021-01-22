@@ -15,7 +15,7 @@ export function getTodos () {
 export function addTodo(newTodo,dispatch){
    return request
        .post('/api/v1/todos')
-       .send({todoName: newTodo.todoName})
+       .send({todoName: newTodo.todoName,Due_Date: newTodo.Due_Date,priority: newTodo.priority})
      //  .then( res=> dispatch(addItem(newTodo))) THIS LINE IS ALSO RIGHT
        .then(res => dispatch(addItem(res.body)))
     }
