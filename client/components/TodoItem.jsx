@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 import {connect} from 'react-redux'
 import {deleteTodo, updateTodo} from '../apis/api'
-import {Link} from 'react-router-dom'
+//import {Link} from 'react-router-dom'
 
 
 
@@ -9,8 +9,8 @@ class TodoItem extends React.Component{
 
     state ={
         //todoName: '',
-        todoName: this.props.todoItem.todoName,
-        id: this.props.todoItem.id,
+        todoName: this.props.todoArr.todoName,
+        id: this.props.todoArr.id,
         editable: false
     }
     
@@ -42,7 +42,7 @@ class TodoItem extends React.Component{
                             {/* { !this.state.editable && <label className="new-todo" onDoubleClick={this.handleDoubleClick}>{this.props.todoItem.todoName}</label>} */}
                             {/* {!this.state.editable && <Link to={`/todos/${this.props.todoItem.todoName}`}>{this.props.todoItem.todoName}</Link> } */}
                             
-                            {this.props.todoArr.map( )(,i)><li>{}</li>)}
+                            {this.props.todoArr.map( (todoItem,i) => <li key={i}>{todoItem.todoName}</li>)}
                             {this.state.editable && <input className="new-todo" type="text" value={this.state.todoName} onChange={this.handleChange}/>} 
                              {/* THE BELOW LINE IS WRONG: value={this.props.todoItem.todoName} CAN'T BE CHANGED*/ }
                             {/* {this.state.editable && <input className="new-todo" type="text" value={this.props.todoItem.todoName} onChange={this.handleChange}/>} */}
@@ -67,4 +67,4 @@ function mapStateToProps (globalState) {
   }
 }
 
-export default connect(mapStateToProps)(App)
+export default connect(mapStateToProps)(TodoItem)
