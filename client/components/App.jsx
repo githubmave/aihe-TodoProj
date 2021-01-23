@@ -67,9 +67,7 @@ class App extends React.Component {
          
         <section className="main">
           <TodoList todoArr={this.props.todoArr}/>
-            <Route path="/todos/:todoId" component={TodoItem}>
-
-
+            <Route path="/todos/:todoName" component={TodoItem}>
             </Route>
        
               {/* <ul >

@@ -40,9 +40,9 @@ class TodoItem extends React.Component{
                   <div >
                       <form onSubmit={this.handleSubmit}>
                             {/* { !this.state.editable && <label className="new-todo" onDoubleClick={this.handleDoubleClick}>{this.props.todoItem.todoName}</label>} */}
-                            {!this.state.editable && <Link to={`/todos/${this.props.todoItem.todoName}`}>{this.props.todoItem.todoName}</Link> }
+                            {/* {!this.state.editable && <Link to={`/todos/${this.props.todoItem.todoName}`}>{this.props.todoItem.todoName}</Link> } */}
                             
-                           
+                            {this.props.todoArr.map( )(,i)><li>{}</li>)}
                             {this.state.editable && <input className="new-todo" type="text" value={this.state.todoName} onChange={this.handleChange}/>} 
                              {/* THE BELOW LINE IS WRONG: value={this.props.todoItem.todoName} CAN'T BE CHANGED*/ }
                             {/* {this.state.editable && <input className="new-todo" type="text" value={this.props.todoItem.todoName} onChange={this.handleChange}/>} */}
@@ -56,5 +56,15 @@ class TodoItem extends React.Component{
 
 }
 
-export default connect()(TodoItem)
+//export default connect()(TodoItem)
 //export default TodoItem
+function mapStateToProps (globalState) {
+  return {
+   
+    todoArr: globalState.todosRdc
+
+    
+  }
+}
+
+export default connect(mapStateToProps)(App)
