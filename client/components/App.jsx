@@ -1,7 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import {HashRouter as Router, Route} from 'react-router-dom'
 
 import AddTodo from './AddTodo'
+import TodoItem from './TodoItem'
 import TodoList from './TodoList'
 import {recieveItems} from '../actions/todosAc'
 import {getTodos} from '../apis/api'
@@ -48,7 +50,7 @@ class App extends React.Component {
     return (
    
       <>
-
+         <Router>
         <header className="header">
           <h1>Your Todo List
           
@@ -65,6 +67,10 @@ class App extends React.Component {
          
         <section className="main">
           <TodoList todoArr={this.props.todoArr}/>
+            <Route path="/todos/:todoId" component={TodoItem}>
+
+
+            </Route>
        
               {/* <ul >
                   {this.props.todoArr.map((todoIt,i) =>
@@ -84,6 +90,7 @@ class App extends React.Component {
        
           
         <footer className="footer"></footer>
+        </Router>
       </>
     )
   }

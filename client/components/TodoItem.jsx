@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {deleteTodo, updateTodo} from '../apis/api'
+import {Link} from 'react-router-dom'
 
 
 
@@ -39,7 +40,9 @@ class TodoItem extends React.Component{
                   <div >
                       <form onSubmit={this.handleSubmit}>
                             {/* { !this.state.editable && <label className="new-todo" onDoubleClick={this.handleDoubleClick}>{this.props.todoItem.todoName}</label>} */}
-                            {!this.state.editable &&  <input className="new-todo" type="text" value={this.props.todoItem.todoName} onDoubleClick={this.handleDoubleClick} />}
+                            {!this.state.editable && <Link to={`/todos/${this.props.todoItem.todoName}`}>{this.props.todoItem.todoName}</Link> }
+                            
+                           
                             {this.state.editable && <input className="new-todo" type="text" value={this.state.todoName} onChange={this.handleChange}/>} 
                              {/* THE BELOW LINE IS WRONG: value={this.props.todoItem.todoName} CAN'T BE CHANGED*/ }
                             {/* {this.state.editable && <input className="new-todo" type="text" value={this.props.todoItem.todoName} onChange={this.handleChange}/>} */}

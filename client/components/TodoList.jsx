@@ -1,6 +1,9 @@
 import React from 'react'
-import { connect } from 'react-redux'
+//import { connect } from 'react-redux'
 import TodoItem from './TodoItem'
+//import {Link} from 'react-router-dom'
+
+
 
 
 
@@ -16,13 +19,12 @@ const TodoList = ({todoArr}) =>(
 
      {/* {props.todoArr.map( (todoIt,i) => (<li key={i}>{todoIt.todoName}<button >Delete</button></li>  ))} */}
          {todoArr.map( (todoItem,i)=> <li key={i}><TodoItem todoItem={todoItem} /></li>)}
+            {/* {todoArr.map((todoItem, i) => <li key={i}> <Link to={`/todos/${todoItem.id}`}><TodoItem todoItem={todoItem} /></Link></li>)} */}
         </ul>
 
 
         </div>
-       </>
-
-    // )  
+       </>      
 )
 
 //}
