@@ -1,8 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {useParams} from 'react-router-dom'
 import {deleteTodo, updateTodo} from '../apis/api'
 //import {Link} from 'react-router-dom'
-
 
 
 class TodoItem extends React.Component{
@@ -11,8 +11,11 @@ class TodoItem extends React.Component{
         //todoName: '',
         todoName: this.props.todoArr.todoName,
         id: this.props.todoArr.id,
-        editable: false
+        editable: false,
+        todoNam: useParams()
     }
+
+    // const { todoNam } =useParams()
     
      handleDelete =(e,id)=> {
      console.log("TodoItem/handleDelete(id) id:",id)
@@ -38,15 +41,20 @@ class TodoItem extends React.Component{
         return(
             <>
                   <div >
-                      <form onSubmit={this.handleSubmit}>
-                            {/* { !this.state.editable && <label className="new-todo" onDoubleClick={this.handleDoubleClick}>{this.props.todoItem.todoName}</label>} */}
-                            {/* {!this.state.editable && <Link to={`/todos/${this.props.todoItem.todoName}`}>{this.props.todoItem.todoName}</Link> } */}
-                            
-                            {this.props.todoArr.map( (todoItem,i) => <li key={i}>{todoItem.todoName}</li>)}
-                            {this.state.editable && <input className="new-todo" type="text" value={this.state.todoName} onChange={this.handleChange}/>} 
-                             {/* THE BELOW LINE IS WRONG: value={this.props.todoItem.todoName} CAN'T BE CHANGED*/ }
-                            {/* {this.state.editable && <input className="new-todo" type="text" value={this.props.todoItem.todoName} onChange={this.handleChange}/>} */}
-                     </form>
+                      {/* <form onSubmit={this.handleSubmit}> */}
+                           
+                            {/* {this.props.todoArr.map( (todo,i)=> {
+                                if(todo.todoName === this.state.todoNam){
+                                  return <li key={i}>{todo.todoName}</li>
+                                }
+
+                            }                         
+                            )}
+                          
+                            {this.state.editable && <input className="new-todo" type="text" value={this.state.todoName} onChange={this.handleChange}/>}  */}
+                             
+                     {/* </form> */}
+                     <p>I am testing</p>
                   </div>
                   <button className="destroy" onClick= {e => this.handleDelete(e,this.state.id)}></button>
             </>
