@@ -5,42 +5,78 @@ import {deleteTodo, updateTodo} from '../apis/api'
 //import {Link} from 'react-router-dom'
 
 
-class TodoItem extends React.Component{
 
-    state ={
+const TodoItem = ({todoArr}) => {
+     const {todoId } = useParams()
+
+    return(
+        <>
+             {todoArr.map( (todo,i) =>{
+              
+                 if(todo.id == todoId)
+                 {
+                  return <li key={i}>Task:{todo.todoName} Due Date:{todo.Due_Date}</li>}
+
+                 }
+             
+               
+             )}
+        </>
+    )
+
+}
+
+
+
+
+
+function mapStateToProps (globalState) {
+  return {
+   
+    todoArr: globalState.todosRdc
+
+    
+  }
+}
+
+export default connect(mapStateToProps)(TodoItem)
+//class TodoItem extends React.Component{
+  
+
+   // state ={
         //todoName: '',
-        todoName: this.props.todoArr.todoName,
-        id: this.props.todoArr.id,
-        editable: false,
-        todoNam: useParams()
-    }
+     //  todoName: this.props.todoArr.todoName,
+      //  id: this.props.todoArr.id,
+       // editable: false,
+       // todoNam: useParams()
+  //  }
 
     // const { todoNam } =useParams()
     
-     handleDelete =(e,id)=> {
-     console.log("TodoItem/handleDelete(id) id:",id)
-      e.preventDefault()
-      deleteTodo(id, this.props.dispatch)
+    //  handleDelete =(e,id)=> {
+    //  console.log("TodoItem/handleDelete(id) id:",id)
+    //   e.preventDefault()
+    //   deleteTodo(id, this.props.dispatch)
         
-     }
-     handleChange = (e) => {
-        return    this.setState({todoName: e.target.value})
+    //  }
+    //  handleChange = (e) => {
+    //     return    this.setState({todoName: e.target.value})
 
         
 
-     }
-     handleDoubleClick = (e) => {
+    //  }
+    //  handleDoubleClick = (e) => {
 
-        return this.setState({editable: true})
-     }
-     handleSubmit = () => {
-       updateTodo(this.state.id,this.state,this.props.dispatch)
+    //     return this.setState({editable: true})
+    //  }
+    //  handleSubmit = () => {
+    //    updateTodo(this.state.id,this.state,this.props.dispatch)
 
-     }
-       render(){
-        return(
-            <>
-                  <div >
+    //  }
+       //render(){
+        //return(
+            // <>
+            //       <div >
                       {/* <form onSubmit={this.handleSubmit}> */}
                            
                             {/* {this.props.todoArr.map( (todo,i)=> {
@@ -53,26 +89,26 @@ class TodoItem extends React.Component{
                           
                             {this.state.editable && <input className="new-todo" type="text" value={this.state.todoName} onChange={this.handleChange}/>}  */}
                              
-                     {/* </form> */}
-                     <p>I am testing</p>
-                  </div>
-                  <button className="destroy" onClick= {e => this.handleDelete(e,this.state.id)}></button>
-            </>
-        )
+            //          {/* </form> */}
+            //          <p>I am testing</p>
+            //       </div>
+            //       <button className="destroy" onClick= {e => this.handleDelete(e,this.state.id)}></button>
+            // </>
+       // )
 
-       }
+    //  }
 
-}
+//}
 
 //export default connect()(TodoItem)
 //export default TodoItem
-function mapStateToProps (globalState) {
-  return {
+// function mapStateToProps (globalState) {
+//   return {
    
-    todoArr: globalState.todosRdc
+//     todoArr: globalState.todosRdc
 
     
-  }
-}
+//   }
+// }
 
-export default connect(mapStateToProps)(TodoItem)
+// export default connect(mapStateToProps)(TodoItem)

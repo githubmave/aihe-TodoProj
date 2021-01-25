@@ -19,7 +19,7 @@ const TodoList = ({todoArr}) =>(
 
      {/* {props.todoArr.map( (todoIt,i) => (<li key={i}>{todoIt.todoName}<button >Delete</button></li>  ))} */}
          {/* {todoArr.map( (todoItem,i)=> <li key={i}><TodoItem todoItem={todoItem} /></li>)} */}
-         {todoArr.map( (todoItem,i)=> <li key={i}><Link to={`/todos/${todoItem.todoName}`}>{todoItem.todoName}</Link></li>)}
+         {todoArr.map( (todoItem,i)=> <li key={i}><Link to={`/todos/${todoItem.id}`}>{todoItem.todoName}</Link></li>)}
             {/* {todoArr.map((todoItem, i) => <li key={i}> <Link to={`/todos/${todoItem.id}`}><TodoItem todoItem={todoItem} /></Link></li>)} */}
         </ul>
 
