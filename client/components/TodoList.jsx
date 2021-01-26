@@ -11,9 +11,9 @@ class TodoList extends React.Component {
             state = {
 
                    todoName: '',
-                   todoList: this.props.todoArr,
+                   todoList: [],
                    todoId: 1,
-                   editable: true
+                   editable: false
             }
             
    
@@ -26,9 +26,7 @@ class TodoList extends React.Component {
 
    handleDoubleClick = (e) => {
 
-      return this.setState({editable: true})
-      
-             
+      this.setState({editable: true, todoList: this.props.todoArr})         
    }
    handleChange = (e) => {
 
@@ -46,8 +44,8 @@ class TodoList extends React.Component {
 
               <>
               <div className="todo-list">
-                {/* {!this.state.editable && this.props.todoArr.map( (todo,i)=> <li className="new-todo" key={i} onDoubleClick={this.handleDoubleClick}><Link to={`/todos/${todo.id}`}>{todo.todoName}</Link><button className="destroy" onClick={e =>this.handleDelete(e,todo.id)}></button></li>)} */}
-                {this.state.editable && this.state.todoList.map( (todoItem,i)=><li className="new-todo" key={i}><input type="text" value={todoItem.todoName} onChange={this.handleChange}/><button className="destroy" onClick={e => this.handleDelete(e,todoItem.id)}></button></li>)}
+                {this.props.todoArr.map( (todo,i)=> <li className="new-todo" key={i} onDoubleClick={this.handleDoubleClick}><Link to={`/todos/${todo.id}`}>{todo.todoName}</Link><button className="destroy" onClick={e =>this.handleDelete(e,todo.id)}></button></li>)}
+                {/* {this.state.editable && this.state.todoList.map( (todoItem,i)=><li key={i}><input className="new-todo" type="text" value={todoItem.todoName} onChange={this.handleChange}/><button className="destroy" onClick={e => this.handleDelete(e,todoItem.id)}></button></li>)} */}
               </div>
              </>
           )     
