@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {useParams} from 'react-router-dom'
 import {deleteTodo, updateTodo} from '../apis/api'
-//import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 
 
@@ -11,14 +11,24 @@ const TodoItem = ({todoArr}) => {
 
     return(
         <>
-             {todoArr.map( (todo,i) =>{
+             {todoArr.map( (todo,i) =>
               
+               { 
+                 
                  if(todo.id == todoId)
                  {
-                  return <li key={i}>Task:{todo.todoName} Due Date:{todo.Due_Date}</li>}
+                  return <li key={i}>Task:{todo.todoName} Due Date:{todo.Due_Date}</li>
 
                  }
-             
+
+               //  return <li className="new-todo" key={i}><Link to={`/todos/${todo.id}`}>{todo.todoName}</Link></li>
+                
+                }
+
+                   
+
+                 
+                
                
              )}
         </>

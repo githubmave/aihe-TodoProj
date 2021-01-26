@@ -11,8 +11,9 @@ class TodoList extends React.Component {
             state = {
 
                    todoName: '',
+                   todoList: this.props.todoArr,
                    todoId: 1,
-                   editable: false
+                   editable: true
             }
             
    
@@ -25,43 +26,43 @@ class TodoList extends React.Component {
 
    handleDoubleClick = (e) => {
 
-      return this.setState({editable: true, todoId: e.target.value })
+      return this.setState({editable: true})
       
              
    }
    handleChange = (e) => {
 
-        return this.setState({todoName: e.target.value, todoId: e.target.id})
+        return this.setState({todoName: e.target.value})
    }
 
    handleSubmit = (e) => {
 
        updateTodo(this.state.todoId, this.state, this.props.dispatch)
    }
+
    render(){
 
-          return(
+          return (
 
               <>
-                {/* <div className="todo-list">
-                   {this.props.todoArr.map( (todo,i)=> {  return <li className="new-todo" key={i} >
-                        { !this.state.editable && <Link to={`/todos/${todo.id}`} onDoubleClick={this.handleDoubleClick}>{todo.todoName}</Link> }
-                        
-                      {this.state.editable && <form onSubmite={this.handleSubmit}>
-                              <input type="text"  id={this.state.todoId} value={this.state.todoName} onChange={this.handleChange} />
-                        
-                         </form>} 
-                  
-                        
-                        
-                 </div> */}
-          </>
+              <div className="todo-list">
+                {/* {!this.state.editable && this.props.todoArr.map( (todo,i)=> <li className="new-todo" key={i} onDoubleClick={this.handleDoubleClick}><Link to={`/todos/${todo.id}`}>{todo.todoName}</Link><button className="destroy" onClick={e =>this.handleDelete(e,todo.id)}></button></li>)} */}
+                {this.state.editable && this.state.todoList.map( (todoItem,i)=><li className="new-todo" key={i}><input type="text" value={todoItem.todoName} onChange={this.handleChange}/><button className="destroy" onClick={e => this.handleDelete(e,todoItem.id)}></button></li>)}
+              </div>
+             </>
           )     
+   
+
    }
 }
-
 //export default TodoList
-export default connect()(TodoList)
+
+function mapStateToProps (globalState) {
+  return {
+   todoArr: globalState.todosRdc
+  }
+}
+export default connect(mapStateToProps)(TodoList)
 
 //const TodoList = (props) =>{
 //const TodoList = ({todoArr}) =>(
