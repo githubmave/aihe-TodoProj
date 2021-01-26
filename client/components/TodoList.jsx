@@ -1,8 +1,8 @@
 
 import React from 'react'
 import { connect } from 'react-redux'
-//import TodoItem from './TodoItem'
-import {Link} from 'react-router-dom'
+import TodoLink from './TodoLink'
+
 import {deleteTodo, updateTodo} from '../apis/api'
 
 
@@ -36,6 +36,7 @@ class TodoList extends React.Component {
    handleSubmit = (e) => {
 
        updateTodo(this.state.todoId, this.state, this.props.dispatch)
+      
    }
 
    render(){
@@ -44,8 +45,10 @@ class TodoList extends React.Component {
 
               <>
               <div className="todo-list">
-                {this.props.todoArr.map( (todo,i)=> <li className="new-todo" key={i} onDoubleClick={this.handleDoubleClick}><Link to={`/todos/${todo.id}`}>{todo.todoName}</Link><button className="destroy" onClick={e =>this.handleDelete(e,todo.id)}></button></li>)}
+                {/* {this.props.todoArr.map( (todo,i)=> <li className="new-todo" key={i} onDoubleClick={this.handleDoubleClick}><Link to={`/todos/${todo.id}`}>{todo.todoName}</Link><button className="destroy" onClick={e =>this.handleDelete(e,todo.id)}></button></li>)} */}
                 {/* {this.state.editable && this.state.todoList.map( (todoItem,i)=><li key={i}><input className="new-todo" type="text" value={todoItem.todoName} onChange={this.handleChange}/><button className="destroy" onClick={e => this.handleDelete(e,todoItem.id)}></button></li>)} */}
+                {this.props.todoArr.map( (todo,i)=><TodoLink key={i} todoItem={todo}/>)}
+              
               </div>
              </>
           )     
