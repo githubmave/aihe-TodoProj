@@ -1,5 +1,5 @@
 import React from 'react'
-import {updateItem,deleteTodoItem} from '../actions/todosAc'
+//import {updateItem,deleteTodoItem} from '../actions/todosAc'
 import {deleteTodo} from '../apis/api'
 import {connect} from 'react-redux'
 

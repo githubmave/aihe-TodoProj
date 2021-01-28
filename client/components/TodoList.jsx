@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import TodoItem from './TodoItem'
+//import TodoItem from './TodoItem'
+import TodoItem1 from './TodoItem1'
 
  
 
@@ -17,7 +18,10 @@ class TodoList extends React.Component{
 
      {/* {todoArr.map( (todoIt,i) => (<li key={i}>{todoIt.todoName}<button >Delete</button></li>  ))} */}
 
-         {this.props.todoArr.map( (todoIt,i)=><li className="new-todo" key = {i}> <TodoItem  todoItem={todoIt}/> </li> )}
+         {/* {this.props.todoArr.map( (todoIt,i)=><li className="new-todo" key = {i}> <TodoItem  todoItem={todoIt}/> </li> )} */}
+        
+         {this.props.todoArr.map( (todoIt,i)=><li key = {i}> <TodoItem1  todoItem={todoIt}/> </li> )}
+
         </ul>
 
 
@@ -33,9 +37,7 @@ const mapStateToProps = (state)=>{
    return {
      todoArr: state.todosRdc
        
-   }
-
-      
+   }      
 } 
 
 export default connect(mapStateToProps)(TodoList)
