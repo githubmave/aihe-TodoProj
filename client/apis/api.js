@@ -37,6 +37,11 @@ export function deleteTodo(id){
            .delete('/api/v1/todos/'+id)
            .then( res=>res.body )
 }
+export function updateTodo(id,updatedTodo){
+     return request
+         .patch('/api/v1/todos'+id)
+         .send({id:id,todoName})
+} 
 
 // export function addTodo (newTodo){
 //   console.log("api,li 21,recieve newTodo from AddTodo",newTodo)
