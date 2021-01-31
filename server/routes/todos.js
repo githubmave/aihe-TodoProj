@@ -63,7 +63,7 @@ router.patch( '/:id',(req,res)=>{
 
 router.delete('/:id',(req,res)=>{
     const id =req.params.id
-    console.log("it is delete id:", id)
+    console.log("router.delete(:/id) id:", id)
 
 
     deleteTodo(id)
