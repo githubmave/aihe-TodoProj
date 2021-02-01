@@ -1,5 +1,6 @@
                                                                                 
                                                                                 
+
 import request from 'superagent'
 //import {getItems,updateItem,addTodoItem} from '../actions/todosAc'
   
@@ -38,9 +39,11 @@ export function deleteTodo(id){
            .then( res=>res.body )
 }
 export function updateTodo(id,updatedTodo){
+    console.log("api/updateTodo(id,updatedTodo): id", id)
      return request
          .patch('/api/v1/todos'+id)
-         .send({id:id,todoName})
+         .send({id:id,todoName:updatedTodo.todoName})
+         .then(response => response.body) 
 } 
 
 // export function addTodo (newTodo){

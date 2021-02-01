@@ -52,7 +52,7 @@ router.post( '/' ,(req,res)=> {
 router.patch( '/:id',(req,res)=>{
     const id = Number(req.params.id)
     const updatedTodo=req.body
-
+    console.log("router.patch/:id-updatedTodo" ,updatedTodo)
     updateTodo(id,updatedTodo)
       
       .then( currTodo => {
