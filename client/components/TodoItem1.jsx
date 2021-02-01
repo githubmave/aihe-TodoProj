@@ -1,6 +1,6 @@
 
 import React,{useState} from 'react'
-import {deleteTodo,updateTodo} from '../apis/api'
+import {deleteTodo} from '../apis/api'
 
 
 const TodoItem1 = ({todoItem}) =>{
@@ -15,11 +15,12 @@ const TodoItem1 = ({todoItem}) =>{
 
             deleteTodo(todoId)
     }
-    const handleSubmit = ()=>{
-       todoItm.id =todoId
-       todoItm.todoName =todoNam
-        setTodoItm(todoItm)
-        updateTodo(todoId,todoItm)
+    const handleSubmit = () =>{
+        console.log("TodoItem1/handleSubmit: todoItm")
+    //    todoItm.id =todoId
+    //    todoItm.todoName =todoNam
+    //     setTodoItm(todoItm)
+    //     updateTodo(todoId,todoItm)
     }
 
     return(
