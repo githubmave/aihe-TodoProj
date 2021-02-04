@@ -3,7 +3,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import { addTodo } from '../apis/api'
-import {addTodoItem} from '../actions/todosAc'
+//import {addTodoItem} from '../actions/todosAc'
 
 
 class AddTodo extends React.Component {

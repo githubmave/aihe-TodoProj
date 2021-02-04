@@ -41,7 +41,7 @@ export function deleteTodo(id){
 export function updateTodo(id,updatedTodo){
     console.log("api/updateTodo(id,updatedTodo): id", id)
      return request
-         .patch('/api/v1/todos'+id)
+         .patch('/api/v1/todos/'+id)
          .send({id:id,todoName:updatedTodo.todoName})
          .then(response => response.body) 
 } 

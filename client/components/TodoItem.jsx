@@ -1,6 +1,6 @@
 import React from 'react'
 //import {updateItem,deleteTodoItem} from '../actions/todosAc'
-import {deleteTodo} from '../apis/api'
+import {deleteTodo,updateTodo} from '../apis/api'
 import {connect} from 'react-redux'
 
 
@@ -61,9 +61,11 @@ class TodoItem extends React.Component{
             
               <>
               <div className="view">
-                 <input className="toggle" type="checkbox" onChange={this.handleChange}/>
+                 {/* <input className="toggle" type="checkbox" onChange={this.handleChange}/> */}
                    <label >{this.props.todoItem.todoName}</label>
-                         
+                  <form onSubmit={this.handleSFormSubmit}>
+                      <input type="text" value={this.state.todoName} onChange={this.handleChange}/>
+                   </form>      
 
               </div>
                 <button className="destroy" onClick={this.handleDeleteClick}></button>

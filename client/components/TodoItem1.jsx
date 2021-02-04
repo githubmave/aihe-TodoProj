@@ -1,4 +1,3 @@
-
 import React,{useState} from 'react'
 import {deleteTodo} from '../apis/api'
 
@@ -34,5 +33,4 @@ const TodoItem1 = ({todoItem}) =>{
                       
     )
 }
-
 export default TodoItem1
