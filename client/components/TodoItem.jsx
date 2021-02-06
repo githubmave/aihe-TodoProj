@@ -49,9 +49,10 @@ class TodoItem extends React.Component{
           this.setState({editable: false})
     }
     
-   handleDeleteClick = () => {
+   handleDeleteClick = (e) => {
      // return deleteTodoItem(this.state.id,this.props.dispatch)
-     return deleteTodo(this.state.id)
+     //return deleteTodo(this.state.id)
+     return deleteTodo(this.state.id, this.props.dispatch)
    }
 
     render(){
@@ -62,12 +63,12 @@ class TodoItem extends React.Component{
               <>
               <div className="view">
                  {/* <input className="toggle" type="checkbox" onChange={this.handleChange}/> */}
-                   <label >{this.props.todoItem.todoName}</label>
-                  <form onSubmit={this.handleSFormSubmit}>
-                      <input type="text" value={this.state.todoName} onChange={this.handleChange}/>
-                   </form>      
+                 {!this.state.editable && <label >{this.props.todoItem.todoName}</label>}
+                  {this.state.editable && <form onSubmit={this.handleSFormSubmit}>
+                      <input type="text" className="new-todo" value={this.state.todoName} onChange={this.handleChange}/>
+                   </form>  }    
 
-              </div>
+                </div>
                 <button className="destroy" onClick={this.handleDeleteClick}></button>
              </>
 

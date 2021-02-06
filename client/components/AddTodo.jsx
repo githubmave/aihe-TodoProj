@@ -25,10 +25,10 @@ class AddTodo extends React.Component {
   handleSubmit = (evt) => {
      evt.preventDefault()
    
-     addTodo(this.state)
+     addTodo(this.state,this.props.dispatch)
 
      console.log("AddTodo,li 23,new todoNm",this.state)
-    // this.setState({todoNm: ''})
+     this.setState({todoNm: ''})
 
   }
 

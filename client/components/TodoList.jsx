@@ -20,7 +20,7 @@ class TodoList extends React.Component{
 
          {/* {this.props.todoArr.map( (todoIt,i)=><li className="new-todo" key = {i}> <TodoItem  todoItem={todoIt}/> </li> )} */}
         
-         {this.props.todoArr.map( (todoIt,i)=><li key = {i}> <TodoItem1  todoItem={todoIt}/> </li> )}
+         {this.props.todoArr.map( (todoIt,i)=><li className="new-todo" key = {i}> <TodoItem1 todoItem={todoIt}/> </li> )}
 
         </ul>
 

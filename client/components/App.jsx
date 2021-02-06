@@ -3,8 +3,8 @@ import { connect } from 'react-redux'
 
 import AddTodo from './AddTodo'
 import TodoList from './TodoList'
-import {getTodoItems} from '../actions/todosAc'   
-//import {getTodos} from '../apis/api'
+//import {getTodoItems} from '../actions/todosAc'   
+import {getTodos} from '../apis/api'
 
 
 import {recieveItems} from '../actions/todosAc'
@@ -23,7 +23,8 @@ class App extends React.Component {
     //  })
     //getTodos(this.props.dispatch)
       
-     getTodoItems(this.props.dispatch)
+     //getTodoItems(this.props.dispatch)
+     getTodos(this.props.dispatch)
        
   }
 

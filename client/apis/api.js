@@ -2,6 +2,7 @@
                                                                                 
 
 import request from 'superagent'
+import {getTodoItems,addTodoItem, deleteTodoItem, updateTodoItem} from '../actions/todosAc'
 //import {getItems,updateItem,addTodoItem} from '../actions/todosAc'
   
 
@@ -20,30 +21,38 @@ import request from 'superagent'
 //     .then(responds => dispatch(getItems(responds.body)))
 
 // }
-export function getTodos(){
-    return request 
-           .get('/api/v1/todos')
-           .then( res =>res.body)
-}
+// export function getTodos(){
+//     return request 
+//            .get('/api/v1/todos')
+//            .then( res =>res.body)
+// }
 
-export function addTodo(newTodo){
+export function getTodos(dispatch){
+
+    return request.get('/api/v1/todos')
+                  .then(response => dispatch(getTodoItems(response.body)))
+}
+export function addTodo(newTodo,dispatch){
 
     return request
             .post('/api/v1/todos')
             .send({todoName: newTodo.todoName})
-            .then(res => res.body)
+           // .then(res => res.body)
+             .then(response =>dispatch(addTodoItem(response.body)))
 }
-export function deleteTodo(id){
+export function deleteTodo(id,dispatch){
     return request
            .delete('/api/v1/todos/'+id)
-           .then( res=>res.body )
+           //.then( res=>res.body )
+           .then(response => dispatch(deleteTodoItem(id)))
 }
-export function updateTodo(id,updatedTodo){
+export function updateTodo(id,updatedTodo,dispatch){
     console.log("api/updateTodo(id,updatedTodo): id", id)
      return request
          .patch('/api/v1/todos/'+id)
          .send({id:id,todoName:updatedTodo.todoName})
-         .then(response => response.body) 
+        // .then(response => response.body) 
+        .then(response =>dispatch(updateTodoItem(id,response.body)))
 } 
 
 // export function addTodo (newTodo){

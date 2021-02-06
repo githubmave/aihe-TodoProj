@@ -1,5 +1,5 @@
 
-import {getTodos,addTodo, deleteTodo} from '../apis/api'
+//import {getTodos,addTodo, updateTodo,deleteTodo} from '../apis/api'
 
 export const GET_TODOS = 'GET_TODOS'
 export const UPDATE_TODO = 'UPDATE_TODO'
@@ -18,7 +18,7 @@ export const DELETE_TODO = 'DELETE_TODO'
 //         }
 // } 
    
-export const getItems = (todos) => {
+export const getTodoItems = (todos) => {
 
      return {
         type:GET_TODOS,
@@ -27,7 +27,7 @@ export const getItems = (todos) => {
      }
 }
 
-export const addItem = (addedTodo) => {
+export const addTodoItem = (addedTodo) => {
 
     return {
        type:ADD_TODO,
@@ -37,7 +37,7 @@ export const addItem = (addedTodo) => {
 }
 
 
-export const updateItem = (id,updatedTodo) =>{
+export const updateTodoItem = (id,updatedTodo) =>{
 
    return {
      type: UPDATE_TODO,
@@ -47,7 +47,7 @@ export const updateItem = (id,updatedTodo) =>{
    }
        
 }  
-export const deleteItem = (id) => {
+export const deleteTodoItem = (id) => {
 
     return {
 
@@ -55,26 +55,26 @@ export const deleteItem = (id) => {
         id
     }
 }
-export function getTodoItems(dispatch){
-    return getTodos()
-       .then(todos => dispatch(getItems(todos)))
+// export function getTodoItems(dispatch){
+//     return getTodos()
+//        .then(todos => dispatch(getItems(todos)))
 
-}
-export function addTodoItem(newTodo,dispatch){
-   return addTodo(newTodo)
-           .then(addedTodo => dispatch(addItem(addedTodo)))
+// }
+// export function addTodoItem(newTodo,dispatch){
+//    return addTodo(newTodo)
+//            .then(addedTodo => dispatch(addItem(addedTodo)))
      
-}
+// }
   
-export function deleteTodoItem(id,dispatch){
-   return deleteTodo(id)
-           .then( ()=> dispatch(deleteItem(id)))
-}
+// export function deleteTodoItem(id,dispatch){
+//    return deleteTodo(id)
+//            .then( ()=> dispatch(deleteItem(id)))
+// }
 
-export function updateTodoItem (id, updatedTodo){
+// export function updateTodoItem (id, updatedTodo){
 
-        return 
-}
+//         return 
+// }
 // export const addItem = (newTodo) => {
 
 //       return {
