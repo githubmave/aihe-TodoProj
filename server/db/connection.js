@@ -40,7 +40,7 @@ function addTodo(todo, db= connection) {
       
          
 function updateTodo(id,updatedTodo,db=connection){
- 
+   console.log("connection.js/updateTodo: updatedTodo", updatedTodo )
       return db('todos')
          .update(updatedTodo)
          .where('id',id)
