@@ -1,5 +1,5 @@
 
-export const RECIEVE_TODOS = 'RECIEVE_TODOS'
+export const GET_TODOS = 'GET_TODOS'
 export const ADD_TODO = 'ADD_TODO'
 export const DELETE_TODO = 'DELETE_TODO'
 export const UPDATE_TODO = 'UPDATE_TODO'
@@ -15,15 +15,15 @@ export const UPDATE_TODO = 'UPDATE_TODO'
 //         }
 // }
   
-export const recieveItems = (todoData) => {
+export const getTodoItems = (todos) => {
      return {
-        type:RECIEVE_TODOS,
-        todoData
+        type:GET_TODOS,
+        todos
  
      }
 }  
  
-export const addItem = (newItem) => {
+export const addTodoItem = (newItem) => {
    return {
 
       type: ADD_TODO,
@@ -31,16 +31,16 @@ export const addItem = (newItem) => {
    }
 }
 
-export const updateItem = (id, updatedTodo) => {
+export const updateTodoItem = (id, updatedTodo) => {
 
    return {
-
+ 
       type: UPDATE_TODO,
       newTodo: updatedTodo,
       id: id
    }
 }
-export const deleteItem = (id) => {
+export const deleteTodoItem = (id) => {
     return {
        type: DELETE_TODO,
        id: id

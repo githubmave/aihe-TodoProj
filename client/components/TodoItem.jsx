@@ -39,7 +39,7 @@ class TodoItem extends React.Component{
                   <div >
                       <form onSubmit={this.handleSubmit}>
                             {/* { !this.state.editable && <label className="new-todo" onDoubleClick={this.handleDoubleClick}>{this.props.todoItem.todoName}</label>} */}
-                            {!this.state.editable &&  <input className="new-todo" type="text" value={this.props.todoItem.todoName} onDoubleClick={this.handleDoubleClick} />}
+                            {!this.state.editable &&  <label className="new-todo" type="text" onDoubleClick={this.handleDoubleClick} >{this.props.todoItem.todoName}</label>}
                             {this.state.editable && <input className="new-todo" type="text" value={this.state.todoName} onChange={this.handleChange}/>} 
                              {/* THE BELOW LINE IS WRONG: value={this.props.todoItem.todoName} CAN'T BE CHANGED*/ }
                             {/* {this.state.editable && <input className="new-todo" type="text" value={this.props.todoItem.todoName} onChange={this.handleChange}/>} */}

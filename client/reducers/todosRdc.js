@@ -1,11 +1,11 @@
-import { RECIEVE_TODOS,ADD_TODO,DELETE_TODO,UPDATE_TODO} from '../actions/todosAc'
+import { GET_TODOS,ADD_TODO,DELETE_TODO,UPDATE_TODO} from '../actions/todosAc'
 
 const initialState = []
 
 const todosRdc = (state = initialState, action) => {
   switch (action.type) {
-    case RECIEVE_TODOS:
-      return action.todoData
+    case GET_TODOS:
+      return action.todos
     case ADD_TODO :
        return [...state,action.addedTodo]
     case DELETE_TODO:
@@ -15,7 +15,7 @@ const todosRdc = (state = initialState, action) => {
              }
         )
     case UPDATE_TODO:
-        return state.find( todo => {
+        return state.map( todo => {
                if(todo.id == action.id)
                    return action.newTodo
         }

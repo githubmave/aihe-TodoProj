@@ -26,9 +26,10 @@ const TodoList = ({todoArr}) =>(
 )
 
 //}
-export default TodoList
-//export default connect()(TodoList)
+//export default TodoList
 
+export default connect()(TodoList)
+//export default connect()(TodoList)
 // const mapStateToProps = (state)=>{
 //    return {
 //      todoArr: state.todosRdc
