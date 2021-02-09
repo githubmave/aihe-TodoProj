@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import TodoItem from './TodoItem'
+import TodoItemA from './TodoItemA'
 
 
 
@@ -15,7 +15,7 @@ const TodoList = ({todoArr}) =>(
         <ul className="todo-list">
 
      {/* {props.todoArr.map( (todoIt,i) => (<li key={i}>{todoIt.todoName}<button >Delete</button></li>  ))} */}
-         {todoArr.map( (todoItem,i)=> <li key={i}><TodoItem todoItem={todoItem} /></li>)}
+         {todoArr.map( (todoItem,i)=> <li key={i}><TodoItemA todoItem={todoItem} /></li>)}
         </ul>
 
 
