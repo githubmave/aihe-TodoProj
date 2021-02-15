@@ -1,7 +1,8 @@
                                                                                 
                                                                                 
 import request from 'superagent'
-//import {getItems,updateItem,addTodoItem} from '../actions/todosAc'
+//import {getItems,updateItem,addTodoItem} from '../actions/todos
+import {getItems, addItem, updateItem, deleteItem} from '../actions/todosAc'
   
 
 // const todosUrl = 'http://localhost:3000/api/v1/todos'
@@ -19,23 +20,32 @@ import request from 'superagent'
 //     .then(responds => dispatch(getItems(responds.body)))
 
 // }
-export function getTodos(){
+export function getTodos(dispatch){
     return request 
            .get('/api/v1/todos')
-           .then( res =>res.body)
+           .then( res => dispatch(getItems(res.body)))
 }
 
-export function addTodo(newTodo){
+export function addTodo(newTodo,dispatch){
 
     return request
             .post('/api/v1/todos')
             .send({todoName: newTodo.todoName})
-            .then(res => res.body)
+            .then(res => dispatch(addItem(res.body)))
 }
-export function deleteTodo(id){
+
+export function updateTodo(id, updatedTodo,dispatch){
+
+    return request
+            .patch('/api/v1/todos/'+id)
+            .post({id:id, todoName:updatedTodo.todoName})
+            .then(res => dispatch(updateItem(res.body)))
+
+}
+export function deleteTodo(id,dispatch){
     return request
            .delete('/api/v1/todos/'+id)
-           .then( res=>res.body )
+           .then( res=>dispatch(deleteItem(id)) )
 }
 
 // export function addTodo (newTodo){

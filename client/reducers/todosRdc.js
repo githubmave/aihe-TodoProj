@@ -1,7 +1,7 @@
 import { GET_TODOS, UPDATE_TODO,ADD_TODO,DELETE_TODO} from '../actions/todosAc'
 
-//const initialState = []
-const todosRdc = (state = [], action) => {
+const initialState = []
+const todosRdc = (state = initialState, action) => {
   switch (action.type) {
     case GET_TODOS:
       return action.todos

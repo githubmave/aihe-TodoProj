@@ -3,11 +3,11 @@ import { connect } from 'react-redux'
 
 import AddTodo from './AddTodo'
 import TodoList from './TodoList'
-import {getTodoItems} from '../actions/todosAc'   
-//import {getTodos} from '../apis/api'
+//import {getTodoItems} from '../actions/todosAc'   
+import {getTodos} from '../apis/api'
 
 
-import {recieveItems} from '../actions/todosAc'
+//import {recieveItems} from '../actions/todosAc'
 
 class App extends React.Component {
   state = { 
@@ -23,17 +23,17 @@ class App extends React.Component {
     //  })
     //getTodos(this.props.dispatch)
       
-     getTodoItems(this.props.dispatch)
+     getTodos(this.props.dispatch)
        
   }
 
-  handleDelete = (e,id) => {
-    e.preventDefault()
-    console.log("button is clicked")
+  // handleDelete = (e,id) => {
+  //   e.preventDefault()
+  //   console.log("button is clicked")
     
-    deleteTodo(id)
+  //   deleteTodo(id)
 
-  }
+  // }
 
   // handleChange = (e) => {
   

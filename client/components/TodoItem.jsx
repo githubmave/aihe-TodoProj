@@ -1,6 +1,6 @@
 import React from 'react'
 //import {updateItem,deleteTodoItem} from '../actions/todosAc'
-import {deleteTodo} from '../apis/api'
+import {deleteTodo,updateTodo} from '../apis/api'
 import {connect} from 'react-redux'
 
 
@@ -49,9 +49,10 @@ class TodoItem extends React.Component{
           this.setState({editable: false})
     }
     
-   handleDeleteClick = () => {
+   handleDeleteClick = (e) => {
      // return deleteTodoItem(this.state.id,this.props.dispatch)
-     return deleteTodo(this.state.id)
+     e.preventDefault()
+     return deleteTodo(this.state.id,this.props.dispatch)
    }
 
     render(){
