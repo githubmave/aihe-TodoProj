@@ -10,7 +10,8 @@ class TodoItem extends React.Component{
         //todoName: '',
         todoName: this.props.todoItem.todoName,
         id: this.props.todoItem.id,
-        editable: false
+        editable: false,
+        position: "Auckland"
     }
     
      handleDelete =(e,id)=> {
@@ -27,7 +28,7 @@ class TodoItem extends React.Component{
      }
      handleDoubleClick = (e) => {
 
-        return this.setState({editable: true})
+        return this.setState({position: "Auckland"})
      }
      handleSubmit = () => {
        updateTodo(this.state.id,this.state,this.props.dispatch)
