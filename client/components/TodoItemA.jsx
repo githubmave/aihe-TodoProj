@@ -15,25 +15,42 @@ import {deleteTodo, updateTodo} from '../apis/api'
             //     deleteTodo(todoId, props.dispatch)
             // },[todoId,todoNam])
 
+          
+
             const handleDelete =(e,id) => {
-                console.log("TodoItemA/handleDelete:")
+                console.log("TodoItemA/handleDelete:", id)
                 setTodoId(id)
                 deleteTodo(id, props.dispatch)
                 
             }
 
-            async function fetchData(){
-                todoItm.todoName=todoNam
-                todoItm.id=todoID
-                 updateTodo(todoId,todoItm)
+         
+        //     function fetchData(id, todoName){
+        //         todoItm.todoName=todoName
+        //         todoItm.id=todoId
+        //          updateTodo(todoId,todoItm,props.dispatch)
 
-            }
+        //     }
 
-           const handleSubmit = (e) => {
-               console.log("TodoItemA/handleSubmit:", todoNam)
-                fetchData(todoId, todoNam)
+        //    useEffect(()=>{
+        //         fetchData(todoId,todoNam)
+                
+        //    },[])
 
-           }
+        //    const handleSubmit = (e) => {
+        //        console.log("TodoItemA/handleSubmit:", todoNam)
+        //         fetchData(todoId, todoNam)
+
+        //    }
+      
+        const handleSubmit = (e) =>{
+            console.log("TodoItemA/handleSubmit:todoNam", todoNam)
+            todoItm.todoName=todoNam
+            setTodoItm(todoItm)
+            updateTodo(todoId,todoItm,props.dispatch)
+
+        }
+        
 
     return(
 
