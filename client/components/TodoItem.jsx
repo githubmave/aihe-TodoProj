@@ -28,14 +28,15 @@ class TodoItem extends React.Component{
    
     handleChange = (e) => {
       
-
+      e.preventDefault()
       // return this.state
       console.log("TodoItem-handleChange-todoName:",e.target.value)
 
-      return  this.setState({updatedTodoName: e.target.value})
+      return  this.setState({todoName: e.target.value})
     }
     
     handleDoubleClick = (e) => {
+       e.preventDefault()
        this.setState({editable: true})
        console.log("double click to edit")
 
@@ -44,7 +45,7 @@ class TodoItem extends React.Component{
         
     handleFormSubmit = (e) => {
            e.preventDefault()
-          updateTodo(this.props.todoItem.id, this.state.updatedTodoName,this.props.dispatch)
+          updateTodo(this.props.todoItem.id, this.state.todoName,this.props.dispatch)
            
           this.setState({editable: false})
     }
@@ -62,10 +63,15 @@ class TodoItem extends React.Component{
             
               <>
               <div className="view">
-                 <input className="toggle" type="checkbox" onChange={this.handleChange}/>
-                   <label >{this.props.todoItem.todoName}</label>
-                         
+                 {/* <input className="toggle" type="checkbox" onChange={this.handleChange}/> */}
+                  {!this.state.editable && <label onDoubleClick={this.handleDoubleClick}>{this.props.todoItem.todoName}</label>}                         
+                   
+                  {this.state.editable && 
+                     <form onSubmit={this.handleFormSubmit}>
+                        <input className="new-todo"  value={this.state.todoName}  onChange={this.handleChange}/>
 
+                     </form>              
+                  }
               </div>
                 <button className="destroy" onClick={this.handleDeleteClick}></button>
              </>
