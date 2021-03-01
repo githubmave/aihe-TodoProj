@@ -1,11 +1,31 @@
-import React from 'react'
+import React,{useState} from 'react'
+import {connect} from 'react-redux'
 
-function AddTodo (props) {
-  return (
-    <>
-      <input className="new-todo" placeholder="What needs to be done?" autoFocus={true} />
-    </>
-  )
+
+function AddTodo(){
+     
+     const [todo,setTodo]=useState('initials')
+     
+     const handleChange =(e)=>{
+        e.preventDefault()
+
+        setTodo(e.target.value)
+
+     }
+
+      return(
+         <>
+         <div >
+ 
+          <input  className="new-todo"  type="text" value={todo}  onChange={handleChange}    />
+
+
+         </div>
+         </>
+      )
+
 }
 
-export default AddTodo
+
+
+export default connect()(AddTodo)

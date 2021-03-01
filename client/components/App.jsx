@@ -1,9 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
-
-import AddTodo from './AddTodo'
 import {fetchTodos} from '../actions/todosAc'
 import { getTodos } from '../apis/api'
+
+import AddTodo from './AddTodo'
 
 
 class App extends React.Component {
@@ -59,24 +59,19 @@ class App extends React.Component {
     return (
       <>
         <header className="header">
-          <h1>Test Todo List</h1>
-          <AddTodo />
+          <h1> Rebuild Todos </h1>
+        
         </header>
          
-        {/* <section className="main"></section> */}
-           {/* <ul >
-              {this.props.todoArr.map((todoIt,i) =>{
-
-              <li key={i} >{todoIt.todoName}  </li>       
-
-              })}
-           </ul>    */}
+       
            
 
                 <ul className="todo-list">
                 {/* {this.state.todoArr( (todoItm,i)=>{return <li key={i}>{todoItm.todoName}</li>})} */}
                   {/* <li>{this.state.todoName}</li> */}
+                  <AddTodo />
                   <div className="view">
+                  
                   {this.state.todoArr.map( (todo,i)  => <li className="new-todo" key = {i}>{todo.todoName}</li>)}
 
                   <button className="destroy" onClick={this.handleDeleteClick}></button>
