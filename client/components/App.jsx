@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import {fetchTodos} from '../actions/todosAc'
 import { getTodos } from '../apis/api'
 
 import AddTodo from './AddTodo'
@@ -87,7 +86,18 @@ class App extends React.Component {
   }
 }
 
-export default App
+const mapStateToProps = ({todos}) =>{
+
+  return {todos}
+     
+        
+  
+}
+
+export default connect()(App)
+
+
+
 // function mapStateToProps (globalState) {
 //   return {
 //     //todoArr is props belongs to "this"
