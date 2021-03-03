@@ -7,11 +7,14 @@ import AddTodo from './AddTodo'
 
 class App extends React.Component {
 
- 
+     state={
+       todoArr:[]
+     }
      
   componentDidMount () {
      
-      getTodos(this.props.dispatch)
+      getTodos()
+       .then(todos=> this.setState({todoArr: todos}))
     
       
      
@@ -19,7 +22,7 @@ class App extends React.Component {
   
 
   render () {
-    const {todos}=this.props
+  
 
   
    
@@ -41,9 +44,9 @@ class App extends React.Component {
                   
                   {/* {todos.map( (todo,i)  => <li className="new-todo" key = {i}>{todo.todoName}</li>)} */}
 
-                  {todos.map((todo,i) =><li key={i}>{todo.todoName}</li>)}
+                {this.state.todoArr.map((todo,i)=><li className="new-todo" key={i}>{todo.todoName}<button className="destroy" onClick={this.handleDeleteClick}></button></li> )}
 
-                  <button className="destroy" onClick={this.handleDeleteClick}></button>
+                  
                   </div>
                 </ul>
               
@@ -56,16 +59,10 @@ class App extends React.Component {
   }
 }
 
-function mapStateToProps ({todos}) {
 
-  return { todos}
-     
-        
-  
-}
 
-export default connect(mapStateToProps)(App)
-
+//export default connect(mapStateToProps)(App)
+export default App
 
 
 // function mapStateToProps (globalState) {
