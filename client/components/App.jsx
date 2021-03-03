@@ -26,7 +26,7 @@ class App extends React.Component {
      
       getTodos()
     
-       .then(todos => this.handleGetTodos(todos))
+     //  .then(todos => this.handleGetTodos(todos))
     //  this.fetchTodos()
     // getTodos()
     //  .then(todos => this.setState({todoArr: todos}))
@@ -94,7 +94,7 @@ const mapStateToProps = ({todos}) =>{
   
 }
 
-export default connect()(App)
+export default connect(mapStateTodProps)(App)
 
 
 
