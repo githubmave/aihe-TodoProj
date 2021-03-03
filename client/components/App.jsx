@@ -7,54 +7,22 @@ import AddTodo from './AddTodo'
 
 class App extends React.Component {
 
-  // constructor(props){
-
-  //     super(props)
-  //     this.state = {
-
-  //        todoArr: [],
-  //        errorMessage: ''
-
-  //     }
-  //     this.fetchTodos = this.fetchTodos.bind(this)
-  // }
-    state = {
-      todoArr: []
-    }
+ 
      
   componentDidMount () {
      
-      getTodos()
+      getTodos(this.props.dispatch)
     
-     //  .then(todos => this.handleGetTodos(todos))
-    //  this.fetchTodos()
-    // getTodos()
-    //  .then(todos => this.setState({todoArr: todos}))
+      
      
   }
-
-  // fetchTodos () {
-
-  //   return getTodos()
-  //          .then( todos => {this.setState({todoArr: todos})})
-  //          .catch( err => { this.setState({errorMessage: err.message})})
-  // }
-
-  handleGetTodos =(todos) => {
-      //  const todoArr=[]
-      //  todoArr=todos
-      return this.setState({todoArr: todos})
-     
-  }
-  handleDeleteClick = () => {
-
-    return console.log("App/handleDeleteClick:click")
-  }
-
-
+  
 
   render () {
-    console.log("App/state{todoArr:}: ",this.state.todoArr)
+    const {todos}=this.props
+
+  
+   
     return (
       <>
         <header className="header">
@@ -71,7 +39,9 @@ class App extends React.Component {
                   <AddTodo />
                   <div className="view">
                   
-                  {this.state.todoArr.map( (todo,i)  => <li className="new-todo" key = {i}>{todo.todoName}</li>)}
+                  {/* {todos.map( (todo,i)  => <li className="new-todo" key = {i}>{todo.todoName}</li>)} */}
+
+                  {todos.map((todo,i) =><li key={i}>{todo.todoName}</li>)}
 
                   <button className="destroy" onClick={this.handleDeleteClick}></button>
                   </div>
@@ -86,15 +56,15 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = ({todos}) =>{
+function mapStateToProps ({todos}) {
 
-  return {todos}
+  return { todos}
      
         
   
 }
 
-export default connect(mapStateTodProps)(App)
+export default connect(mapStateToProps)(App)
 
 
 

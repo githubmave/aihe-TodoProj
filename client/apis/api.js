@@ -10,17 +10,7 @@ export function getTodos (dispatch) {
    // .get(todosUrl)
     .get('/api/v1/todos')
     .then( response => dispatch(getTodoItems(response.body)))
-      //console.log("my todos object look like:",response.body)
-    // .then(res => {
-    //     res.body.foreach(todo => validateNoSnakeCase(todo))
-    //     return res.body
-    //   })
-       
-      
-      
-    
-
-    // console.log("my todos object look like:",res.body)
+     
       
 }
 
