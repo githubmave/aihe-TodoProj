@@ -7,14 +7,12 @@ import AddTodo from './AddTodo'
 
 class App extends React.Component {
 
-     state={
-       todoArr:[]
-     }
+    
      
   componentDidMount () {
      
-      getTodos()
-       .then(todos=> this.setState({todoArr: todos}))
+      getTodos(this.props.dispatch)
+      // .then(todos=> this.setState({todoArr: todos}))
     
       
      
@@ -37,14 +35,12 @@ class App extends React.Component {
            
 
                 <ul className="todo-list">
-                {/* {this.state.todoArr( (todoItm,i)=>{return <li key={i}>{todoItm.todoName}</li>})} */}
-                  {/* <li>{this.state.todoName}</li> */}
+            
                   <AddTodo />
                   <div className="view">
-                  
-                  {/* {todos.map( (todo,i)  => <li className="new-todo" key = {i}>{todo.todoName}</li>)} */}
+               
 
-                {this.state.todoArr.map((todo,i)=><li className="new-todo" key={i}>{todo.todoName}<button className="destroy" onClick={this.handleDeleteClick}></button></li> )}
+                {this.props.todoArr.map((todo,i)=><li className="new-todo" key={i}>{todo.todoName}<button className="destroy"></button></li> )}
 
                   
                   </div>
@@ -59,10 +55,13 @@ class App extends React.Component {
   }
 }
 
+function mapStateToProps(state){
+         return{todoArr: state.todosRdc}
 
+}
 
 //export default connect(mapStateToProps)(App)
-export default App
+export default connect(mapStateToProps)(App)
 
 
 // function mapStateToProps (globalState) {
