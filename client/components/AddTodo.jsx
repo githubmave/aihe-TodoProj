@@ -5,7 +5,7 @@ import {addTodo} from '../apis/api'
 
 function AddTodo(){
      
-     const [todo,setTodo]=useState('initials')
+     const [todoNam,setTodoNam]=useState('initials')
      
      const handleChange =(e)=>{
         e.preventDefault()
@@ -16,13 +16,13 @@ function AddTodo(){
 
      const handleSubmit =(e)=>{
 
-           addTodo(dispatch)
+           addTodo(dispatch,)
      }
       return(
          <>
          <div >
           <form onSubmit={handleSubmit}>
-               <input  className="new-todo"  type="text" value={todo}  onChange={handleChange}    />
+               <input  className="new-todo"  type="text" value={todoNam}  onChange={handleChange}    />
           </form>
 
          </div>
