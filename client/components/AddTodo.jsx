@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import {connect} from 'react-redux'
+import {addTodo} from '../apis/api'
 
 
 function AddTodo(){
@@ -13,12 +14,16 @@ function AddTodo(){
 
      }
 
+     const handleSubmit =(e)=>{
+
+           addTodo(dispatch)
+     }
       return(
          <>
          <div >
- 
-          <input  className="new-todo"  type="text" value={todo}  onChange={handleChange}    />
-
+          <form onSubmit={handleSubmit}>
+               <input  className="new-todo"  type="text" value={todo}  onChange={handleChange}    />
+          </form>
 
          </div>
          </>

@@ -5,17 +5,7 @@ import {getTodoItems} from '../actions/todosAc'
 
 const todosUrl = 'http://localhost:3000/api/v1/todos'
 
-// export function getTodos () {
-  
-//   return request
-//    // .get(todosUrl)
-    
-//     .get('/api/v1/todos')
-    
-//     .then( response => response.body)
-     
-      
-// }
+
 
 export function getTodos(dispatch){
 
@@ -25,3 +15,10 @@ export function getTodos(dispatch){
 }
 
     
+export function addTodo(dispatch,newTodo){
+
+       return request
+         .post('api/v1/todos')
+         .send({todoName:newTodo.todoName})
+         .then(res =>dispatch(addTodoItem(res.body)))
+}

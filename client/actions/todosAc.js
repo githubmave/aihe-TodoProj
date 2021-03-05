@@ -3,7 +3,8 @@
 
 
 export const GET_TODOS='GET_TODOS'
-//export function getTodoItems(todos){
+export const ADD_TODO = 'ADD_TODO'
+
 export const getTodoItems = (todos) =>{
        
         return{
@@ -13,3 +14,11 @@ export const getTodoItems = (todos) =>{
         }
 }
 
+export const addTodoItem = (newTodoItem) =>{
+
+        return {
+          type: ADD_TODO,
+          newTodoItem
+
+        }
+}

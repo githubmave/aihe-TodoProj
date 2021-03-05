@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { getTodos } from '../apis/api'
 
 import AddTodo from './AddTodo'
+import TodoList from './TodoList'
 
 
 class App extends React.Component {
@@ -37,13 +38,14 @@ class App extends React.Component {
                 <ul className="todo-list">
             
                   <AddTodo />
-                  <div className="view">
+                  <TodoList todoList={this.props.todoArr}/>
+                  {/* <div className="view">
                
 
                 {this.props.todoArr.map((todo,i)=><li className="new-todo" key={i}>{todo.todoName}<button className="destroy"></button></li> )}
 
                   
-                  </div>
+                  </div> */}
                 </ul>
               
            
@@ -60,16 +62,8 @@ function mapStateToProps(state){
 
 }
 
-//export default connect(mapStateToProps)(App)
 export default connect(mapStateToProps)(App)
 
 
-// function mapStateToProps (globalState) {
-//   return {
-//     //todoArr is props belongs to "this"
-//     todoArr: globalState.todosRdc
-//   }
-// }
 
-// export default connect(mapStateToProps)(App)
 
