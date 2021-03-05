@@ -6,7 +6,7 @@ function TodoItem(props){
    return(
 
     <>
-        <li className="new-todo" key={props.todoItem.id}>{props.todoItem.todoName}</li>
+        <li className="new-todo">{props.todoItem.todoName}</li>
     </>
 
    )

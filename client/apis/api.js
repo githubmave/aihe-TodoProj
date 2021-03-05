@@ -1,6 +1,6 @@
 
 import request from 'superagent'
-import {getTodoItems} from '../actions/todosAc'
+import {getTodoItems,addTodoItem} from '../actions/todosAc'
 
 
 const todosUrl = 'http://localhost:3000/api/v1/todos'

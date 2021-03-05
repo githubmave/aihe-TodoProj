@@ -3,26 +3,28 @@ import {connect} from 'react-redux'
 import {addTodo} from '../apis/api'
 
 
-function AddTodo(){
+//function AddTodo(props){
+const AddTodo = (props) =>{
      
-     const [todoNam,setTodoNam]=useState('initials')
+      return(
+            const [todoNam,setTodoNam]=useState('')
+     const [todoItm,setTodoItm]=useState({})
      
-     const handleChange =(e)=>{
-        e.preventDefault()
-
-        setTodo(e.target.value)
-
-     }
+   
 
      const handleSubmit =(e)=>{
 
-           addTodo(dispatch,)
+           console.log("AddTodo/handleSubmit: todoItm.todoName",todoItm.todoName)
+           todoItm.todoName=todoNam
+           setTodoItm(todoItm)
+
+           addTodo(props.dispatch,todoItm)
      }
       return(
          <>
          <div >
           <form onSubmit={handleSubmit}>
-               <input  className="new-todo"  type="text" value={todoNam}  onChange={handleChange}    />
+               <input  className="new-todo"  type="text" value={todoNam}  onChange={e=>setTodoNam(e.target.value)}    />
           </form>
 
          </div>
