@@ -20,3 +20,12 @@ Here's a list of steps in case they are useful. You can build in any order you l
 1.  Build API Client in the front end
 1.  Build Thunk Actions to get task from the API
 1.  Build Redux Actions to save task data from the API (remove hard-code initialState)
+
+Mave: How to run :
+
+a. open Ubuntu, go to directory of aihe-TodoProj, then type "code .":  root@MSI /mnt/c/Users/Public/aihe-Todo-Test/aihe-TodoProj/ code .
+b. go to top menu: Terminal/New Terminal. 
+c. in: root@MSI /mnt/c/Users/Public/aihe-Todo-Test/aihe-TodoProj getTodos-VER2-addTodo ❯ npm install,
+b. then : root@MSI /mnt/c/Users/Public/aihe-Todo-Test/aihe-TodoProj getTodos-VER2-addTodo ❯ npm run knex migrate:latest
+c. then: root@MSI /mnt/c/Users/Public/aihe-Todo-Test/aihe-TodoProj getTodos-VER2-addTodo ❯  npm run knex seed:run
+d:then: root@MSI /mnt/c/Users/Public/aihe-Todo-Test/aihe-TodoProj getTodos-VER2-addTodo ❯  npm run dev
