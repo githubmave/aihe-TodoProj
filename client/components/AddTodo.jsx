@@ -1,50 +1,31 @@
+
 import React from 'react'
 import {connect} from 'react-redux'
-import {addTodo} from '../apis/api'
-
-
-//function AddTodo(props){
-//const AddTodo = () =>{.
+import { addTodo } from '../apis/api'
 
 class AddTodo extends React.Component{
-     
-      
-//      const [todoNam,setTodoNam]=useState('')
-//      const [todoItm,setTodoItm]=useState({})
-     state={
-           todoName: ''
-           
+          state={
+
+            todoName:''
+          }
+
+     handleAddClick =(e)=>{
+         e.preventDefault()
+         this.setState({todoName: 'play drum'})
+        addTodo(this.state,this.props.dispatch)
      }
-   
-      handleChange =(e) => { 
+          render(){
 
-           e.preventDefault()
-          return this.setState({todoName: e.target.value})
+               return(
 
-      }
-      handleSubmit =(e)=>{
-           e.preventDefault()
-           console.log("AddTodo/handleSubmit: todoName",this.state)
-           
-         addTodo(this.state,this.props.dispatch)
-        // this.setState({todoName: ''})
-     }
+                   <>
+                    <button onClick={this.handleAddClick}>Add Todo</button>
+                   </>
+               )
 
-     render(){
-      return(
-         <>
-         <div >
-          <form onSubmit={this.handleSubmit}>
-               <input  className="new-todo"  type="text" value={this.state.todoName}  onChange={this.handleChange}    />
-          </form>
+          }
 
-         </div>
-         </>
-      )
-     }
 
 }
-
-
 
 export default connect()(AddTodo)
