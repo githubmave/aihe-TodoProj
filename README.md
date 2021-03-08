@@ -29,3 +29,5 @@ c. in: root@MSI /mnt/c/Users/Public/aihe-Todo-Test/aihe-TodoProj getTodos-VER2-a
 b. then : root@MSI /mnt/c/Users/Public/aihe-Todo-Test/aihe-TodoProj getTodos-VER2-addTodo ❯ npm run knex migrate:latest
 c. then: root@MSI /mnt/c/Users/Public/aihe-Todo-Test/aihe-TodoProj getTodos-VER2-addTodo ❯  npm run knex seed:run
 d:then: root@MSI /mnt/c/Users/Public/aihe-Todo-Test/aihe-TodoProj getTodos-VER2-addTodo ❯  npm run dev
+
+f: How to debug your code: go to Chrome/right top corner (3 vertical dots)/More Tools/developer tools/Console: can see the print-out from client side
