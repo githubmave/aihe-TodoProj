@@ -7,8 +7,9 @@ const todosRdc = (state = initialState, action) => {
     case GET_TODOS:
       return action.todos
 
-    case ADD_TODO:
-      return [...state,action.newTodoItem]
+   
+      case ADD_TODO :
+        return [...state,action.addedTodo]
     default:
       return state
   }

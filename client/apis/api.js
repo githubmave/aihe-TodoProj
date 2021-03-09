@@ -15,11 +15,11 @@ export function getTodos(dispatch){
 }
 
     
+
 export function addTodo(newTodo,dispatch){
-         console.log("api/addTodo(newTodo,dispatch):newTodo ",newTodo)
-       return request
-        
-       .post('api/v1/todos')
-         .send({todoName:newTodo.todoName})
-         .then(res =>dispatch(addTodoItem(res.body)))
-}
+  return request
+      .post('/api/v1/todos')
+      .send({todoName: newTodo.todoName})
+   
+      .then(res => dispatch(addTodoItem(res.body)))
+   }

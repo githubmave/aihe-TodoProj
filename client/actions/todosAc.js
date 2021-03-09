@@ -1,7 +1,5 @@
 
 
-
-
 export const GET_TODOS='GET_TODOS'
 export const ADD_TODO = 'ADD_TODO'
 
@@ -14,11 +12,12 @@ export const getTodoItems = (todos) =>{
         }
 }
 
-export const addTodoItem = (newTodoItem) =>{
 
+
+export const addTodoItem = (newItem) => {
         return {
-          type: ADD_TODO,
-          newTodoItem
-
+     
+           type: ADD_TODO,
+           addedTodo: newItem
         }
-}
+     }
