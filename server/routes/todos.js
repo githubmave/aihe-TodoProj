@@ -2,7 +2,7 @@
 const express=require("express")
 const router =express.Router()
 
-const {getTodos} =require ("../db/connection")
+const {getTodos,findTodo,addTodo} =require ("../db/connection")
 
 router.get('/' ,(req, res)=>{
 
@@ -15,6 +15,20 @@ router.get('/' ,(req, res)=>{
       console.log(err);
       res.status(500);
     });
+})
+
+router.post('/',(req,res) => {
+
+       const newTodo=req.body
+       addTodo(newTodo)
+        .then( todo=>{
+
+            res.json(todo)
+        })
+        .catch(err =>{
+            res.status(500) 
+
+        })
 })
 
 module.exports = router;    
