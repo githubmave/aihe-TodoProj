@@ -7,7 +7,9 @@ const connection = knex(config[env])
 module.exports = {
        findTodo: findTodo,
        getTodos: getTodos,
-       addTodo: addTodo
+       addTodo: addTodo,
+       updateTodo: updateTodo,
+       deleteTodo: deleteTodo
 }
 
 function findTodo(id, db = connection){
@@ -24,7 +26,21 @@ function getTodos(db = connection){
 }
 
 function addTodo(newTodo,db = connection){
+       const todoName=newTodo.todoName
 
-       return db('todos').insert({newTodo})
+       return db('todos').insert({todoName})
               .then(ids => {return findTodo(ids[0],db) })
+}
+
+function deleteTodo(id, db = connection){
+
+         return db('todos').delete().where({id})
+                
+}
+
+function updateTodo(id, updatedTodo, db = connection){
+           
+       return db('todos').update(updatedTodo).where({id})
+              .then(() =>findTodo(id,db))
+
 }

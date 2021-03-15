@@ -1,8 +1,9 @@
 
+const { ReactWrapper } = require("enzyme");
 const express=require("express")
 const router =express.Router()
 
-const {getTodos,findTodo,addTodo} =require ("../db/connection")
+const {getTodos,addTodo,updateTodo,deleteTodo} =require ("../db/connection")
 
 router.get('/' ,(req, res)=>{
 
@@ -26,9 +27,24 @@ router.post('/',(req,res) => {
             res.json(todo)
         })
         .catch(err =>{
-            res.status(500) 
+            res.sendStatus(500) 
 
         })
 })
 
+router.delete('/:id',(req,res) =>{
+       const id = Number(req.params.id)
+        deleteTodo(id)
+         .then(() =>res.sendStatus(200))
+         .catch(()=>res.sendStatus(500))
+})
+
+router.patch('/:id',(req,res) =>{
+       
+     const id =Number(req.params.id)
+     const updatedTodo = req.body
+           updateTodo(id,updatedTodo)
+            .then(newTodo => res.json(newTodo))
+
+})
 module.exports = router;    
