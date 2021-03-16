@@ -23,3 +23,12 @@ export function addTodo(newTodo,dispatch){
    
       .then(res => dispatch(addTodoItem(res.body)))
    }
+
+export function updateTodo(id, updatedTodo,dispatch){
+
+    return request
+            .patch('/api/v1/todos/'+id)
+            .send({updatedTodo})
+            .then( todo => dispatch(updateTodoItem(id, todo)) )
+              
+}
