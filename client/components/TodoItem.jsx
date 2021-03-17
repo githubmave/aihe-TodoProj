@@ -1,14 +1,31 @@
-import React from 'react'
+import React,{useState} from 'react'
 import {connect} from 'react-redux'
+
 
 function TodoItem(props){
 
+     const [editable, setEditable]=useState(false)
+     const [todoNam,setTodoNam] =useState(props.todoItem.todoName)
+
+
+
    return(
 
-    <>
-        <li className="new-todo">{props.todoItem.todoName}
-        <button className="destroy"></button>
+    <> 
+       {!editable &&
+        <li className="new-todo" onDoubleClick={e => setEditable(true)}>{todoNam}
+       
+        <button className="destroy" onClick={}></button>
         </li>
+       }
+
+       {editable &&
+          <li className="new-todo" type="text" onChange={e => setTodoNam(e.target.value)}>{todoName}
+          <button className="new-todo"></button>
+          </li>
+
+       }
+      
     </>
 
    )
