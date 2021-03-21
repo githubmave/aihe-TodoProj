@@ -14,8 +14,9 @@ function TodoItem(props){
      const handleSubmit = () =>{
       id=todoItm.id
       todoItm.todoName=todoNam
+      setTodoItm(todoItm)
 
-         return  updateTodo(id,todoItm,props.dispatch)
+         return  updateTodo(todoItm.id,todoItm,props.dispatch)
      }
 
       
@@ -28,7 +29,7 @@ function TodoItem(props){
                   <input type="text" className="new-todo" value={todoNam} onDoubleClick={e => setEditable(true)}/>
             }
             {editable && 
-                  <input type="text" className="new-todo" value={todoNam} onChange={e =>setTodoNam(e.target.value)}/>
+                  <input type="text" className="new-todo" value={todoNam} onChange={e =>{return setTodoNam(e.target.value)}}/>
             }
 
      </form>
