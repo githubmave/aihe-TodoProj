@@ -8,12 +8,17 @@ function TodoItem(props){
 
      const [editable,setEditable] =useState(false)
      const [todoNam,setTodoNam] =useState(props.todoItem.todoName)
-     const [todoItm, setTodoItm]=useState(props.todoItem)
-
+   //  const [todoItm, setTodoItm]=useState(props.todoItem)
+    // const [id,setId]=useState(props.todoItem.id)
+     const [todoItm,setTodoItm]=useState({})
 
      const handleSubmit = () =>{
-      id=todoItm.id
+      
+      todoItm.id=props.todoItem.id
       todoItm.todoName=todoNam
+
+      setTodoItm(todoItm)
+
       setTodoItm(todoItm)
 
          return  updateTodo(todoItm.id,todoItm,props.dispatch)
@@ -24,15 +29,8 @@ function TodoItem(props){
    return(
 
     <> 
-         <form onSubmit={handleSubmit}>
-            {!editable && 
-                  <input type="text" className="new-todo" value={todoNam} onDoubleClick={e => setEditable(true)}/>
-            }
-            {editable && 
-                  <input type="text" className="new-todo" value={todoNam} onChange={e =>{return setTodoNam(e.target.value)}}/>
-            }
-
-     </form>
+         
+            
     </>
 
    )
