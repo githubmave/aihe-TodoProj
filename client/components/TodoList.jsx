@@ -10,8 +10,11 @@ function TodoList(props){
 
 
              <>
-             {props.todoList.map((todo,i)=><TodoItem key={i}todoItem={todo} />)}
-
+             <div className="todo-list">
+               <li>
+                {props.todoList.map((todo,i)=><TodoItem key={i}todoItem={todo} />)}
+                </li>
+             </div>
              </>
 
     )

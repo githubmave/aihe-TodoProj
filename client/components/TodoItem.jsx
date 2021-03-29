@@ -19,9 +19,7 @@ function TodoItem(props){
 
       setTodoItm(todoItm)
 
-      setTodoItm(todoItm)
-
-         return  updateTodo(todoItm.id,todoItm,props.dispatch)
+         return  updateTodo(todoItm.id,todoItm ,props.dispatch)
      }
 
       
@@ -29,8 +27,14 @@ function TodoItem(props){
    return(
 
     <> 
-         
-            
+       {!editable &&
+         <label className="new-todo" onDoubleClick={e=>setEditable(true)}>{todoNam}</label>
+       }   
+          <form onSubmit={handleSubmit}>
+              {editable &&
+                <input className="new-todo" type="text" value={todoNam} onChange={e =>setTodoNam(e.target.value)}/>
+              } 
+          </form>
     </>
 
    )
