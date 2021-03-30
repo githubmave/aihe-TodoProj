@@ -12,14 +12,15 @@ function TodoItem(props){
     // const [id,setId]=useState(props.todoItem.id)
      const [todoItm,setTodoItm]=useState({})
 
-     const handleSubmit = () =>{
-      
+     const handleSubmit = (e) =>{
+      e.preventDefault()
       todoItm.id=props.todoItem.id
       todoItm.todoName=todoNam
-
+      console.log("TodoItem/handleSubmit: todoItm.todoNam",todoItm.todoNam)
       setTodoItm(todoItm)
 
          return  updateTodo(todoItm.id,todoItm ,props.dispatch)
+         
      }
 
       
@@ -28,13 +29,16 @@ function TodoItem(props){
 
     <> 
        {!editable &&
-         <label className="new-todo" onDoubleClick={e=>setEditable(true)}>{todoNam}</label>
+         <label className="new-todo" onDoubleClick={e=>setEditable(!editable)}>{todoNam}</label>
        }   
-          <form onSubmit={handleSubmit}>
-              {editable &&
-                <input className="new-todo" type="text" value={todoNam} onChange={e =>setTodoNam(e.target.value)}/>
-              } 
-          </form>
+         
+         {editable &&
+            <form onSubmit={handleSubmit}>
+              
+                  <input className="new-todo" type="text" value={todoNam} onChange={e =>setTodoNam(e.target.value)}/>
+                
+            </form>
+         }
     </>
 
    )
