@@ -8,6 +8,7 @@ function TodoItem(props){
 
      const [editable,setEditable] =useState(false)
      const [todoNam,setTodoNam] =useState(props.todoItem.todoName)
+     const [todoId,setTodoId]=useState(props.todoItem.id)
    //  const [todoItm, setTodoItm]=useState(props.todoItem)
     // const [id,setId]=useState(props.todoItem.id)
      const [todoItm,setTodoItm]=useState({})
@@ -23,23 +24,34 @@ function TodoItem(props){
          
      }
 
-      
+    const handleDelete =(e) =>{
+         
+          e.preventDefault()
+          deleteTodo(todoId,props.dispatch)
+
+    }
      
    return(
 
     <> 
        {!editable &&
-         <label className="new-todo" onDoubleClick={e=>setEditable(!editable)}>{todoNam}</label>
+         <label className="new-todo" onDoubleClick={e=>setEditable(!editable)}>{todoNam}
+         <button className="destroy" onClick={handleDelete}></button>
+         
+         </label>
        }   
          
          {editable &&
             <form onSubmit={handleSubmit}>
               
                   <input className="new-todo" type="text" value={todoNam} onChange={e =>setTodoNam(e.target.value)}/>
-                
+                  <button className="destroy" onClick={handleDelete}></button>
             </form>
          }
+
+         
     </>
+    
 
    )
 

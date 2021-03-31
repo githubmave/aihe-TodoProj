@@ -1,11 +1,11 @@
 
 import request from 'superagent'
-import {getTodoItems,addTodoItem} from '../actions/todosAc'
+import {getTodoItems,addTodoItem,deleteItem} from '../actions/todosAc'
 
 
 const todosUrl = 'http://localhost:3000/api/v1/todos'
 
-
+ 
 
 export function getTodos(dispatch){
 
@@ -29,6 +29,15 @@ export function updateTodo(id, updatedTodo,dispatch){
     return request
             .patch('/api/v1/todos/'+id)
             .send({updatedTodo})
-            .then( todo => dispatch(updateTodoItem(id, todo)) )
+            .then( res => dispatch(updateTodoItem(id, res.body)) )
               
+}
+
+export function deleteTodo(id,dispatch){
+         
+       return request
+              .delete('/api/v1/todos/'+id)
+              .then(res => dispatch(deleteItem(id)))
+
+     
 }
