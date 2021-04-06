@@ -13,6 +13,7 @@ class AddTodo extends React.Component {
 
   handleChange = (evt) => {
     //console.log("AddTodo,li 16,new todoNm",this.state.todoNm)
+    evt.preventDefault()
     return this.setState({todoName: evt.target.value,priority:"low",completed:false})
 
   }
