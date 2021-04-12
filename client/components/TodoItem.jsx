@@ -24,9 +24,10 @@ function TodoItem(props){
          
      }
 
-    const handleDelete =(e) =>{
+    const handleDelete =(e,id) =>{
          
           e.preventDefault()
+          setTodoId(id)
           deleteTodo(todoId,props.dispatch)
 
     }
@@ -36,7 +37,7 @@ function TodoItem(props){
     <> 
        {!editable &&
          <label className="new-todo" onDoubleClick={e=>setEditable(!editable)}>{todoNam}
-         <button className="destroy" onClick={handleDelete}></button>
+         <button className="destroy" onClick={(e)=>handleDelete(e,todoId)}></button>
          
          </label>
        }   
@@ -45,7 +46,7 @@ function TodoItem(props){
             <form onSubmit={handleSubmit}>
               
                   <input className="new-todo" type="text" value={todoNam} onChange={e =>setTodoNam(e.target.value)}/>
-                  <button className="destroy" onClick={handleDelete}></button>
+                  <button className="destroy" onClick={(e)=>handleDelete(e,todoId)}></button>
             </form>
          }
 
