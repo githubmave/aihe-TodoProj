@@ -1,3 +1,4 @@
+import e from 'express'
 import React from 'react'
 import { connect } from 'react-redux'
 import {deleteTodo, updateTodo} from '../apis/api'
@@ -6,17 +7,21 @@ import {deleteTodo, updateTodo} from '../apis/api'
 class TodoItem1 extends React.Component{
 
          
-         this.state={
+         state={
 
-              
+            todoItm = this.props.todoItem1
+          
+             
 
          }
-
 
     render(){
         return(
               <>
-                  <div></div>
+                  <div>
+                       <label className="new-todo">{this.state.todoNam}</label>
+                       <button className="destroy" onClick={handleClick}></button>  
+                  </div>
 
               </>
 
