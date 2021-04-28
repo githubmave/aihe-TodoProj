@@ -4,6 +4,11 @@ TODO App
 npm install
 git checkout -b <branchname>
 npm run dev
+
+Use : 1,npm run dev ,2,then press enter
+3, open browser, in http://localhost:3000, press enter,you may see
+the web
+
 ```
 
 See the breathtaking designs [here](http://localhost:3000/designs/)
