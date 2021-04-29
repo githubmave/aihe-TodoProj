@@ -18,16 +18,16 @@ class TodoItem1 extends React.Component{
          handleDelete(e){
                 e.preventDefault()
 
-                deleteTodo(this.state.id,dispatch)
+               return deleteTodo(this.state.id,dispatch)
          }
 
     render(){
         return(
               <>
-                  <div>
-                       <label className="new-todo">{this.state.todoNam}</label>
-                       <button className="destroy" onClick={handleDelete}></button>  
-                  </div>
+                <div>
+                    <label className="new-todo">{this.state.todoNam}</label>
+                    <button className="destroy" onClick={this.handleDelete}></button>  
+                </div>
 
               </>
 
