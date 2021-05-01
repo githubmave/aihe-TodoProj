@@ -9,16 +9,16 @@ class TodoItem1 extends React.Component{
          
          state={
 
-    todoNam: this.props.todoItem1.todoName,
+        todoNam: this.props.todoItem1.todoName,
         id: this.props.todoItem1.id
              
 
          }
 
-         handleDelete(e){
+         handleDelete =(e)=> {
                 e.preventDefault()
 
-               return deleteTodo(this.state.id,dispatch)
+               return deleteTodo(this.state.id,this.props.dispatch)
          }
 
     render(){

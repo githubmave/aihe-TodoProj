@@ -15,7 +15,7 @@ function TodoList(props){
                
                 {/* {props.todoList.map((todo,i)=><TodoItem key={i}todoItem={todo} />)} */}
 
-    {props.todoList.map( (todoItm,i)=><li> <TodoItem1 key={i} todoItem1={todoItm}/></li>)}
+    {props.todoList.map( (todoItm,i)=><li key={i}> <TodoItem1  todoItem1={todoItm}/></li>)}
                 
              </div>
              </>
