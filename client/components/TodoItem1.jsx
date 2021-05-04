@@ -10,23 +10,40 @@ class TodoItem1 extends React.Component{
          state={
 
         todoNam: this.props.todoItem1.todoName,
-        id: this.props.todoItem1.id
+        id: this.props.todoItem1.id,
+        editable:false
              
 
          }
 
-         handleDelete =(e)=> {
+        handleChange = (e)=>{
+            e.preventDefault()
+            console.log("TodoItem1/handleChange occured")
+        }
+
+        handleDoubleClick = (e)=>{
+           e.preventDefault()
+
+        }
+        handleDelete =(e,id)=> {
                 e.preventDefault()
 
-               return deleteTodo(this.state.id,this.props.dispatch)
+               return deleteTodo(id,this.props.dispatch)
          }
 
     render(){
         return(
               <>
                 <div>
+                    {!this.state.editable &&
                     <label className="new-todo">{this.state.todoNam}</label>
-                    <button className="destroy" onClick={this.handleDelete}></button>  
+
+                     }
+                     {this.state.editable &&
+                         <input className="new-todo" type="text" value={this.state.todoNam} onChange={this.handleChange} />
+                     }
+                    <button className="destroy" onClick={e =>this.handleDelete(e,this.state.id)}></button>  
+
                 </div>
 
               </>
