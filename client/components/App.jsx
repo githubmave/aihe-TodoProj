@@ -14,9 +14,7 @@ class App extends React.Component {
      
       getTodos(this.props.dispatch)
       // .then(todos=> this.setState({todoArr: todos}))
-    
       
-     
   }
   
 
