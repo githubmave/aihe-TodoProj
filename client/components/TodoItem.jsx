@@ -36,7 +36,7 @@ function TodoItem(props){
 
     <> 
        {!editable &&
-         <label className="new-todo" onDoubleClick={e=>setEditable(!editable)}>{todoNam}
+         <label className="new-todo" onDoubleClick={e=>setEditable(!editable)}>{props.todoItem.todoName}
          <button className="destroy" onClick={(e)=>handleDelete(e,todoId)}></button>
          
          </label>

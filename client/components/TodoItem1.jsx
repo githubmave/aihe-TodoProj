@@ -35,12 +35,9 @@ class TodoItem1 extends React.Component{
         return(
               <>
                 <div>
-                     {!this.state.editable && 
-                         <label className="new-todo" >{this.props.todoItem1.todoName}</label>
                      
-                     }
-                     {this.state.editable &&
-                         <input className="new-todo" type="text" value={this.state.todoNam} onChange={this.handleChange} />
+                     {!this.state.editable &&
+                         <input className="new-todo" type="text" value={this.props.todoItem1.todoName} onChange={this.handleChange} />
                      }
                     <button className="destroy" onClick={e =>this.handleDelete(e,this.state.id)}></button>  
 

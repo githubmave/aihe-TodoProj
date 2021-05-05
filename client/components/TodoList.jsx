@@ -6,9 +6,7 @@ import TodoItem1 from './TodoItem1'
 
 function TodoList(props){
             
-
     return(
-
 
              <>
              <div className="todo-list">
