@@ -30,15 +30,47 @@ class TodoItem1 extends React.Component{
 
                return deleteTodo(id,this.props.dispatch)
          }
+   
+
+         handleSubmit=(e)=>{
+            e.preventDefault()
+
+            
+            return updateTodo(this.state.id,this.state.updatedTodoNam,this.props.dispatch)
+         }
+
+         handleDoubleClick = (e) =>{
+                 e.preventDefault()
+
+                return this.setState({editable:true})
+          
+         }
+
+         handledChange =(e) =>{
+           e.preventDefault()
+             
+           return this.setState({updatedTodoNam:e.target.value})
+         }
+
+         
 
     render(){
         return(
               <>
                 <div>
+                       <form onSubmit={this.handleSubmit}>
+                            {!this.state.editable &&
+                                <input className="new-todo" type="text" value={this.state.todoNam} onDoubleClick={this.handleDoubleClick} />
+                            }
+
+                            {this.state.editable &&
+                              <input className="new-todo" type="text" onChange={this.handleChange}/>
+                            }
+                        </form>
+                    
+
+
                      
-                     {!this.state.editable &&
-                         <input className="new-todo" type="text" value={this.props.todoItem1.todoName} onChange={this.handleChange} />
-                     }
                     <button className="destroy" onClick={e =>this.handleDelete(e,this.state.id)}></button>  
 
                 </div>
