@@ -8,7 +8,7 @@ class TodoItem1 extends React.Component{
 
          
          state={
-
+        todoItm:this.props.todoItem1,
         todoNam: this.props.todoItem1.todoName,
         id: this.props.todoItem1.id,
         editable:false
@@ -46,13 +46,18 @@ class TodoItem1 extends React.Component{
           
          }
 
-         handledChange =(e) =>{
+         handleChange =(e) =>{
            e.preventDefault()
              
            return this.setState({updatedTodoNam:e.target.value})
          }
 
-         
+         handleSubmit =(e) =>{
+            e.preventDefault()
+
+                   
+            return updateTodo(this.state.id,this.state.todoItm,this.props.dispatch) 
+         }
 
     render(){
         return(
@@ -60,7 +65,7 @@ class TodoItem1 extends React.Component{
                 <div>
                        <form onSubmit={this.handleSubmit}>
                             {!this.state.editable &&
-                                <input className="new-todo" type="text" value={this.state.todoNam} onDoubleClick={this.handleDoubleClick} />
+                                <input className="new-todo" type="text" value={this.props.todoItem1.todoName} onDoubleClick={this.handleDoubleClick} />
                             }
 
                             {this.state.editable &&
