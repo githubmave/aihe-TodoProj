@@ -64,13 +64,11 @@ class TodoItem1 extends React.Component{
               <>
                 <div>
                        <form onSubmit={this.handleSubmit}>
-                            {!this.state.editable &&
-                                <input className="new-todo" type="text" value={this.props.todoItem1.todoName} onDoubleClick={this.handleDoubleClick} />
+                            {
+                                <input className="new-todo" type="text" value={this.props.todoItem1.todoName} onChange={this.handleChange}/>
                             }
 
-                            {this.state.editable &&
-                              <input className="new-todo" type="text" onChange={this.handleChange}/>
-                            }
+                            
                         </form>
                     
 
