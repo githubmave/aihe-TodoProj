@@ -51,7 +51,16 @@ class TodoItem1 extends React.Component{
              
            return this.setState({updatedTodoNam:e.target.value})
          }
+         
+         handleDoubleClick =(e)=>{
+            e.preventDefault()
 
+           return this.setState({editable: true})
+
+          
+
+            return this.setState({editable:true})
+         }
          handleSubmit =(e) =>{
             e.preventDefault()
 
@@ -63,18 +72,28 @@ class TodoItem1 extends React.Component{
         return(
               <>
                 <div>
-                       <form onSubmit={this.handleSubmit}>
-                            {
-                                <input className="new-todo" type="text" value={this.props.todoItem1.todoName} onChange={this.handleChange}/>
+                       
+                           {!this.state.editable &&
+                                 <label className="new-todo" onDoubleClick={this.handleDoubleClick}>{this.props.todoItem1.todoName}</label>
+                           
+                                 &&
+                                 <button className="destroy" onClick={this.handleDelete}></button>
+                           }
+                           
+                          <form onSubmit={this.handleSubmit}>
+                            {this.state.editalbe &&
+                                <input className="new-todo" type="text" value={this.state.todoNam} onChange={this.handleChange}/>
+
+                                &&
+                                <button className="destroy" onClick={this.handleDelete}></button>
+                                
                             }
+                          </form>
 
                             
-                        </form>
-                    
-
-
+                        
                      
-                    <button className="destroy" onClick={e =>this.handleDelete(e,this.state.id)}></button>  
+                   
 
                 </div>
 
