@@ -25,11 +25,7 @@ class TodoItem1 extends React.Component{
            e.preventDefault()
 
         }
-        handleDelete =(e,id)=> {
-                e.preventDefault()
-
-               return deleteTodo(id,this.props.dispatch)
-         }
+       
    
 
          handleSubmit=(e)=>{
@@ -68,33 +64,36 @@ class TodoItem1 extends React.Component{
             return updateTodo(this.state.id,this.state.todoItm,this.props.dispatch) 
          }
 
+         handleDelete =(e)=> {
+            e.preventDefault()
+            console.log("TotoItem1/handleDelete")
+           return deleteTodo(this.state.id,this.props.dispatch)
+         }
+
     render(){
         return(
               <>
                 <div>
-                       
-                           {!this.state.editable &&
-                                 <label className="new-todo" onDoubleClick={this.handleDoubleClick}>{this.props.todoItem1.todoName}</label>
-                           
-                                 &&
-                                 <button className="destroy" onClick={this.handleDelete}></button>
-                           }
-                           
-                          <form onSubmit={this.handleSubmit}>
-                            {this.state.editalbe &&
-                                <input className="new-todo" type="text" value={this.state.todoNam} onChange={this.handleChange}/>
+                         {!this.state.editable && 
+                           <label className="new-todo" >{this.props.todoItem1.todoName}
+                           <button className="destroy" onClick={this.handleDelete}></button>
+                           </label>
+                    
+                         }
+ 
 
-                                &&
-                                <button className="destroy" onClick={this.handleDelete}></button>
-                                
-                            }
-                          </form>
-
-                            
+                           <form onSubmit={this.handleSubmit}>
+                                 {this.state.editable && 
+                                 
+                                    <input className="new-todo" type="text" value={this.state.todoNam} 
+                                    
+                                       onChange={this.handleChange}
+                                    
+                                    />                      
+                                 }
+                              <button className="destroy" onClick={this.handleDelete}></button>
+                        </form>
                         
-                     
-                   
-
                 </div>
 
               </>
