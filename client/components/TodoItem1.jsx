@@ -10,7 +10,7 @@ class TodoItem1 extends React.Component{
          state={
         todoItm:this.props.todoItem1,
         todoNam: this.props.todoItem1.todoName,
-        id: this.props.todoItem1.id,
+        todoId: this.props.todoItem1.id,
         editable:false
              
 
@@ -59,15 +59,17 @@ class TodoItem1 extends React.Component{
          }
          handleSubmit =(e) =>{
             e.preventDefault()
-
+            
                    
             return updateTodo(this.state.id,this.state.todoItm,this.props.dispatch) 
          }
 
-         handleDelete =(e)=> {
+         handleDelete =(e,id)=> {
             e.preventDefault()
             console.log("TotoItem1/handleDelete")
-           return deleteTodo(this.state.id,this.props.dispatch)
+          // return deleteTodo(this.state.id,this.props.dispatch)
+          this.setState({todoId:id})
+          return deleteTodo(this.state.todoId,this.props.dispatch)
          }
 
     render(){
@@ -76,23 +78,13 @@ class TodoItem1 extends React.Component{
                 <div>
                          {!this.state.editable && 
                            <label className="new-todo" >{this.props.todoItem1.todoName}
-                           <button className="destroy" onClick={this.handleDelete}></button>
+                           <button className="destroy" onClick={e=>this.handleDelete(e,this.state.id)}></button>
                            </label>
                     
                          }
  
 
-                           <form onSubmit={this.handleSubmit}>
-                                 {this.state.editable && 
-                                 
-                                    <input className="new-todo" type="text" value={this.state.todoNam} 
-                                    
-                                       onChange={this.handleChange}
-                                    
-                                    />                      
-                                 }
-                              <button className="destroy" onClick={this.handleDelete}></button>
-                        </form>
+                       
                         
                 </div>
 
