@@ -34,7 +34,7 @@ export function updateTodo(id, updatedTodo,dispatch){
 }
 
 export function deleteTodo(id,dispatch){
-         
+       console.log("api/deleTodo: called")
        return request
               .delete('/api/v1/todos/'+id)
               .then(res => dispatch(deleteItem(id)))

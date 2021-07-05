@@ -31,26 +31,21 @@ function TodoItem(props){
           deleteTodo(todoId,props.dispatch)
 
     }
+
+   const handleChange =(e)=> {
+       e.preventDefault()
+       return setTodoNam(e.target.value)
+
+   }
      
    return(
 
     <> 
-       {!editable &&
-         <label className="new-todo" onDoubleClick={e=>setEditable(!editable)}>{props.todoItem.todoName}
-         <button className="destroy" onClick={(e)=>handleDelete(e,todoId)}></button>
-         
-         </label>
-       }   
-         
-         {editable &&
-            <form onSubmit={handleSubmit}>
-              
-                  <input className="new-todo" type="text" value={todoNam} onChange={e =>setTodoNam(e.target.value)}/>
-                  <button className="destroy" onClick={(e)=>handleDelete(e,todoId)}></button>
-            </form>
-         }
-
-         
+       
+         <input    className="new-todo" type="text" value={todoNam} onChange={handleChange} />
+         <button className="destroy" onClick={e=>handleDelete(e,todoId)}></button>
+   
+       
     </>
     
 

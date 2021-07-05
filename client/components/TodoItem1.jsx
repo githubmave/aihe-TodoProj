@@ -35,12 +35,6 @@ class TodoItem1 extends React.Component{
             return updateTodo(this.state.id,this.state.updatedTodoNam,this.props.dispatch)
          }
 
-         handleDoubleClick = (e) =>{
-                 e.preventDefault()
-
-                return this.setState({editable:true})
-          
-         }
 
          handleChange =(e) =>{
            e.preventDefault()
@@ -52,8 +46,6 @@ class TodoItem1 extends React.Component{
             e.preventDefault()
 
            return this.setState({editable: true})
-
-          
 
             return this.setState({editable:true})
          }
@@ -68,8 +60,9 @@ class TodoItem1 extends React.Component{
             e.preventDefault()
             console.log("TotoItem1/handleDelete")
           // return deleteTodo(this.state.id,this.props.dispatch)
-          this.setState({todoId:id})
-          return deleteTodo(this.state.todoId,this.props.dispatch)
+          //this.setState({todoId:id})
+         //  return deleteTodo(this.state.todoId,this.props.dispatch)
+         deleteTodo(id,this.props.dispatch)
          }
 
     render(){
@@ -78,7 +71,7 @@ class TodoItem1 extends React.Component{
                 <div>
                          {!this.state.editable && 
                            <label className="new-todo" >{this.props.todoItem1.todoName}
-                           <button className="destroy" onClick={e=>this.handleDelete(e,this.state.id)}></button>
+                           <button className="destroy" onClick={e=>this.handleDelete(e,this.state.todoId)}></button>
                            </label>
                     
                          }
