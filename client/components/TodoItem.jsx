@@ -24,11 +24,17 @@ function TodoItem(props){
          
      }
 
-    const handleDelete =(e,id) =>{
+    // const handleDelete =(e,id) =>{
          
-          e.preventDefault()
-          setTodoId(id)
-          deleteTodo(todoId,props.dispatch)
+    //       e.preventDefault()
+    //       setTodoId(id)
+    //       deleteTodo(todoId,props.dispatch)
+
+    // }
+    const handleDelete = (e) =>{
+
+           e.preventDefault()
+           deleteTodo(props.todoItem.id,props.dispatch)
 
     }
 
@@ -43,9 +49,9 @@ function TodoItem(props){
     <> 
        
          <input    className="new-todo" type="text" value={todoNam} onChange={handleChange} />
-         <button className="destroy" onClick={e=>handleDelete(e,todoId)}></button>
+         {/* <button className="destroy" onClick={e=>handleDelete(e,todoId)}></button> */}
    
-       
+         <button className="destroy" onClick={e=>handleDelete(e)}></button>
     </>
     
 
