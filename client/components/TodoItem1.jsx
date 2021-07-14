@@ -56,13 +56,20 @@ class TodoItem1 extends React.Component{
             return updateTodo(this.state.id,this.state.todoItm,this.props.dispatch) 
          }
 
-         handleDelete =(e,id)=> {
-            e.preventDefault()
-            console.log("TotoItem1/handleDelete")
-          // return deleteTodo(this.state.id,this.props.dispatch)
-          //this.setState({todoId:id})
-         //  return deleteTodo(this.state.todoId,this.props.dispatch)
-         deleteTodo(id,this.props.dispatch)
+         // handleDelete =(e,id)=> {
+         //    e.preventDefault()
+         //    console.log("TotoItem1/handleDelete")
+         //  // return deleteTodo(this.state.id,this.props.dispatch)
+         //  //this.setState({todoId:id})
+         // //  return deleteTodo(this.state.todoId,this.props.dispatch)
+         // deleteTodo(id,this.props.dispatch)
+         // }
+
+         handleDelete=(e)=>{
+
+             e.preventDefault()
+
+            return deleteTodo(this.props.todoItem1.id,this.props.dispatch)
          }
 
     render(){
@@ -71,7 +78,9 @@ class TodoItem1 extends React.Component{
                 <div>
                          {!this.state.editable && 
                            <label className="new-todo" >{this.props.todoItem1.todoName}
-                           <button className="destroy" onClick={e=>this.handleDelete(e,this.state.todoId)}></button>
+                           {/* <button className="destroy" onClick={e=>this.handleDelete(e,this.state.todoId)}></button> */}
+
+                           <button className="destroy" onClick={this.handleDelete}></button>
                            </label>
                     
                          }
