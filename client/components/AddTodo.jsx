@@ -23,7 +23,7 @@ class AddTodo extends React.Component {
      evt.preventDefault()
      addTodo(this.state,this.props.dispatch)
      console.log("AddTodo,li 23,new todoNm",this.state)
-    // this.setState({todoNm: ''})
+     this.setState({todoName: ''})
 
   }
 

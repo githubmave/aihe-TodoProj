@@ -13,12 +13,22 @@ class TodoItem extends React.Component{
         editable: false
     }
     
-     handleDelete =(e,id)=> {
-     console.log("TodoItem/handleDelete(id) id:",id)
-      e.preventDefault()
-      deleteTodo(id, this.props.dispatch)
+    //  handleDelete =(e,id)=> {
+    //  console.log("TodoItem/handleDelete(id) id:",id)
+    //   e.preventDefault()
+    //   deleteTodo(id, this.props.dispatch)
         
-     }
+    //  }
+
+    handleDelete = (e)=>{
+      e.preventDefault()
+      return deleteTodo(this.props.todoItem.id,this.props.dispatch)
+
+    //  return deleteTodo(this.state.id,this.props.dispatch)
+
+    }
+
+
      handleChange = (e) => {
         return    this.setState({todoName: e.target.value})
 
@@ -27,7 +37,7 @@ class TodoItem extends React.Component{
      }
      handleDoubleClick = (e) => {
 
-        return this.setState({editable: true})
+        return this.setState({editable: !this.state.editable})
      }
      handleSubmit = () => {
        updateTodo(this.state.id,this.state,this.props.dispatch)
@@ -38,14 +48,22 @@ class TodoItem extends React.Component{
             <>
                   <div >
                       <form onSubmit={this.handleSubmit}>
-                            {/* { !this.state.editable && <label className="new-todo" onDoubleClick={this.handleDoubleClick}>{this.props.todoItem.todoName}</label>} */}
-                            {!this.state.editable &&  <input className="new-todo" type="text" value={this.props.todoItem.todoName} onDoubleClick={this.handleDoubleClick} />}
+                            { !this.state.editable && <label className="new-todo" onDoubleClick={this.handleDoubleClick}>{this.props.todoItem.todoName}</label>}
+
+                            {/* {!this.state.editable &&  <input className="new-todo" type="text" value={this.props.todoItem.todoName} onDoubleClick={this.handleDoubleClick} />} */}
+
+                            {/* {!this.state.editable &&
+                               <label className="new-todo" onDoubleClick={this.handleDoubleClick}>{this.props.todoItem.todoName}</label>
+                            } */}
+
                             {this.state.editable && <input className="new-todo" type="text" value={this.state.todoName} onChange={this.handleChange}/>} 
                              {/* THE BELOW LINE IS WRONG: value={this.props.todoItem.todoName} CAN'T BE CHANGED*/ }
                             {/* {this.state.editable && <input className="new-todo" type="text" value={this.props.todoItem.todoName} onChange={this.handleChange}/>} */}
                      </form>
                   </div>
-                  <button className="destroy" onClick= {e => this.handleDelete(e,this.state.id)}></button>
+                  {/* <button className="destroy" onClick= {e => this.handleDelete(e,this.state.id)}></button> */}
+
+                  <button className="destroy" onClick={this.handleDelete}></button>
             </>
         )
 
