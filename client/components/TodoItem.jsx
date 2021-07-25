@@ -23,7 +23,8 @@ class TodoItem extends React.Component{
     handleDelete = (e)=>{
       e.preventDefault()
       return deleteTodo(this.props.todoItem.id,this.props.dispatch)
-
+    // The following code is WRONG: since it can only change 
+    // todos after refreshed the page
     //  return deleteTodo(this.state.id,this.props.dispatch)
 
     }
