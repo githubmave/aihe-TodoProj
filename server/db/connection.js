@@ -46,7 +46,8 @@ function updateTodo(currId,todo,db=connection){
          .where('id',currId)
          .then((rowChanged) => {
 
-              return getTodoById(id)
+             // return getTodoById(id)
+             return getTodoById(currId)
          })
 
 }

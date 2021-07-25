@@ -19,7 +19,7 @@ export function addTodo(newTodo,dispatch){
      //  .then( res=> dispatch(addItem(newTodo))) THIS LINE IS ALSO RIGHT
        .then(res => dispatch(addItem(res.body)))
     }
-
+  
 export function updateTodo(id, updatedTodo,dispatch){
         
        return request
@@ -34,7 +34,7 @@ export function deleteTodo(id, dispatch) {
     return request 
       .delete('/api/v1/todos/'+id)
       .then(res => dispatch(deleteItem(id)))
-
+      .catch(error => console.log(error))
 }
   
 // export function addTodo (newTodo,){

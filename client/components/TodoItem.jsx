@@ -43,6 +43,10 @@ class TodoItem extends React.Component{
      handleSubmit = () => {
        updateTodo(this.state.id,this.state,this.props.dispatch)
 
+      //The following code is WRONG ,since this.props.todoItem CAN'T BE
+      //CHANGED by updateTodo 
+      //updateTodo(this.props.todoItem.id,this.props.dispatch)
+
      }
        render(){
         return(
